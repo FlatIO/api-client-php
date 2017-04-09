@@ -28,7 +28,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
     "name": "Example Application",
     "description": "This is an example using the Flat API",
     "require": {
-        "flat/api": "master"
+        "flat/api": "dev-master"
     }
 }
 
