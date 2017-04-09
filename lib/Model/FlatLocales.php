@@ -29,8 +29,6 @@
 
 namespace Flat\APIClient\Model;
 
-use \ArrayAccess;
-
 /**
  * FlatLocales Class Doc Comment
  *
@@ -41,6 +39,9 @@ use \ArrayAccess;
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class FlatLocales {
+    /**
+     * Possible values of this enum
+     */
     const EN = 'en';
     const ES = 'es';
     const FR = 'fr';
@@ -49,7 +50,22 @@ class FlatLocales {
     const RO = 'ro';
     const NL = 'nl';
     
-
-    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public static function getAllowableEnumValues()
+    {
+        return [
+            self::EN,
+            self::ES,
+            self::FR,
+            self::IT,
+            self::PL,
+            self::RO,
+            self::NL,
+        ];
+    }
 }
+
 

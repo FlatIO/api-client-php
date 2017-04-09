@@ -2,4 +2,5 @@
 README.md
 .gitignore
 .travis.yml
+composer.json
 git_push.sh

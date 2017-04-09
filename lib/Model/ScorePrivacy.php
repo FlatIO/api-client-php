@@ -29,8 +29,6 @@
 
 namespace Flat\APIClient\Model;
 
-use \ArrayAccess;
-
 /**
  * ScorePrivacy Class Doc Comment
  *
@@ -41,11 +39,25 @@ use \ArrayAccess;
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class ScorePrivacy {
-    const PUBLIC = 'public';
-    const PRIVATE = 'private';
+    /**
+     * Possible values of this enum
+     */
+    const _PUBLIC = 'public';
+    const _PRIVATE = 'private';
     const ORGANIZATION_PUBLIC = 'organizationPublic';
     
-
-    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public static function getAllowableEnumValues()
+    {
+        return [
+            self::_PUBLIC,
+            self::_PRIVATE,
+            self::ORGANIZATION_PUBLIC,
+        ];
+    }
 }
+
 

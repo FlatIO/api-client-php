@@ -29,8 +29,6 @@
 
 namespace Flat\APIClient\Model;
 
-use \ArrayAccess;
-
 /**
  * ScoreDataEncoding Class Doc Comment
  *
@@ -41,9 +39,21 @@ use \ArrayAccess;
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class ScoreDataEncoding {
+    /**
+     * Possible values of this enum
+     */
     const BASE64 = 'base64';
     
-
-    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public static function getAllowableEnumValues()
+    {
+        return [
+            self::BASE64,
+        ];
+    }
 }
+
 

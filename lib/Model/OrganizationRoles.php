@@ -29,8 +29,6 @@
 
 namespace Flat\APIClient\Model;
 
-use \ArrayAccess;
-
 /**
  * OrganizationRoles Class Doc Comment
  *
@@ -41,12 +39,27 @@ use \ArrayAccess;
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class OrganizationRoles {
+    /**
+     * Possible values of this enum
+     */
     const ADMIN = 'admin';
     const BILLING = 'billing';
     const TEACHER = 'teacher';
     const USER = 'user';
     
-
-    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public static function getAllowableEnumValues()
+    {
+        return [
+            self::ADMIN,
+            self::BILLING,
+            self::TEACHER,
+            self::USER,
+        ];
+    }
 }
+
 
