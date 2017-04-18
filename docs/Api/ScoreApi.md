@@ -224,7 +224,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteScoreComment**
-> deleteScoreComment($score, $comment)
+> deleteScoreComment($score, $comment, $sharingKey)
 
 Delete a comment
 
@@ -239,9 +239,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $comment = "comment_example"; // string | Unique identifier of a sheet music comment
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $api_instance->deleteScoreComment($score, $comment);
+    $api_instance->deleteScoreComment($score, $comment, $sharingKey);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->deleteScoreComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -254,6 +255,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -321,7 +323,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **forkScore**
-> \Flat\APIClient\Model\ScoreDetails forkScore($score, $body)
+> \Flat\APIClient\Model\ScoreDetails forkScore($score, $body, $sharingKey)
 
 Fork a score
 
@@ -338,9 +340,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $body = new \Flat\APIClient\Model\ScoreFork(); // \Flat\APIClient\Model\ScoreFork | 
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->forkScore($score, $body);
+    $result = $api_instance->forkScore($score, $body, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->forkScore: ', $e->getMessage(), PHP_EOL;
@@ -354,6 +357,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **body** | [**\Flat\APIClient\Model\ScoreFork**](../Model/\Flat\APIClient\Model\ScoreFork.md)|  |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -466,7 +470,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScore**
-> \Flat\APIClient\Model\ScoreDetails getScore($score)
+> \Flat\APIClient\Model\ScoreDetails getScore($score, $sharingKey)
 
 Get a score's metadata
 
@@ -482,9 +486,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScore($score);
+    $result = $api_instance->getScore($score, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScore: ', $e->getMessage(), PHP_EOL;
@@ -497,6 +502,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -514,7 +520,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreCollaborator**
-> \Flat\APIClient\Model\ScoreCollaborator getScoreCollaborator($score, $collaborator)
+> \Flat\APIClient\Model\ScoreCollaborator getScoreCollaborator($score, $collaborator, $sharingKey)
 
 Get a collaborator
 
@@ -531,9 +537,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $collaborator = "collaborator_example"; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScoreCollaborator($score, $collaborator);
+    $result = $api_instance->getScoreCollaborator($score, $collaborator, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreCollaborator: ', $e->getMessage(), PHP_EOL;
@@ -547,6 +554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **collaborator** | **string**| Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group** |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -564,7 +572,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreCollaborators**
-> \Flat\APIClient\Model\ScoreCollaborator[] getScoreCollaborators($score)
+> \Flat\APIClient\Model\ScoreCollaborator[] getScoreCollaborators($score, $sharingKey)
 
 List the collaborators
 
@@ -580,9 +588,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScoreCollaborators($score);
+    $result = $api_instance->getScoreCollaborators($score, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreCollaborators: ', $e->getMessage(), PHP_EOL;
@@ -595,6 +604,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -612,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreComments**
-> \Flat\APIClient\Model\ScoreComment[] getScoreComments($score)
+> \Flat\APIClient\Model\ScoreComment[] getScoreComments($score, $sharingKey)
 
 List comments
 
@@ -628,9 +638,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScoreComments($score);
+    $result = $api_instance->getScoreComments($score, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreComments: ', $e->getMessage(), PHP_EOL;
@@ -643,6 +654,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -660,7 +672,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreRevision**
-> \Flat\APIClient\Model\ScoreRevision getScoreRevision($score, $revision)
+> \Flat\APIClient\Model\ScoreRevision getScoreRevision($score, $revision, $sharingKey)
 
 Get a score revision
 
@@ -674,9 +686,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $revision = "revision_example"; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScoreRevision($score, $revision);
+    $result = $api_instance->getScoreRevision($score, $revision, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreRevision: ', $e->getMessage(), PHP_EOL;
@@ -690,6 +703,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **revision** | **string**| Unique identifier of a score revision. You can use &#x60;last&#x60; to fetch the information related to the last version created. |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -707,7 +721,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreRevisionData**
-> getScoreRevisionData($score, $revision, $format, $onlyCached, $parts)
+> string getScoreRevisionData($score, $revision, $format, $sharingKey, $onlyCached, $parts)
 
 Get a score revision data
 
@@ -722,11 +736,13 @@ $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $revision = "revision_example"; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
 $format = "format_example"; // string | The format of the file you will retrieve
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 $onlyCached = true; // bool | Only return files already generated and cached in Flat's production cache. If the file is not availabe, a 404 will be returned
 $parts = "parts_example"; // string | An optional a set of parts to be exported. This parameter must be specified with a list of integers. For example \"1,2,5\".
 
 try {
-    $api_instance->getScoreRevisionData($score, $revision, $format, $onlyCached, $parts);
+    $result = $api_instance->getScoreRevisionData($score, $revision, $format, $sharingKey, $onlyCached, $parts);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreRevisionData: ', $e->getMessage(), PHP_EOL;
 }
@@ -740,12 +756,13 @@ Name | Type | Description  | Notes
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **revision** | **string**| Unique identifier of a score revision. You can use &#x60;last&#x60; to fetch the information related to the last version created. |
  **format** | **string**| The format of the file you will retrieve |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
  **onlyCached** | **bool**| Only return files already generated and cached in Flat&#39;s production cache. If the file is not availabe, a 404 will be returned | [optional]
  **parts** | **string**| An optional a set of parts to be exported. This parameter must be specified with a list of integers. For example \&quot;1,2,5\&quot;. | [optional]
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -759,7 +776,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreRevisions**
-> \Flat\APIClient\Model\ScoreRevision[] getScoreRevisions($score)
+> \Flat\APIClient\Model\ScoreRevision[] getScoreRevisions($score, $sharingKey)
 
 List the revisions
 
@@ -775,9 +792,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->getScoreRevisions($score);
+    $result = $api_instance->getScoreRevisions($score, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->getScoreRevisions: ', $e->getMessage(), PHP_EOL;
@@ -790,6 +808,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -857,7 +876,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markScoreCommentResolved**
-> markScoreCommentResolved($score, $comment)
+> markScoreCommentResolved($score, $comment, $sharingKey)
 
 Mark the comment as resolved
 
@@ -872,9 +891,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $comment = "comment_example"; // string | Unique identifier of a sheet music comment
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $api_instance->markScoreCommentResolved($score, $comment);
+    $api_instance->markScoreCommentResolved($score, $comment, $sharingKey);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->markScoreCommentResolved: ', $e->getMessage(), PHP_EOL;
 }
@@ -887,6 +907,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -904,7 +925,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markScoreCommentUnresolved**
-> markScoreCommentUnresolved($score, $comment)
+> markScoreCommentUnresolved($score, $comment, $sharingKey)
 
 Mark the comment as unresolved
 
@@ -919,9 +940,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $comment = "comment_example"; // string | Unique identifier of a sheet music comment
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $api_instance->markScoreCommentUnresolved($score, $comment);
+    $api_instance->markScoreCommentUnresolved($score, $comment, $sharingKey);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->markScoreCommentUnresolved: ', $e->getMessage(), PHP_EOL;
 }
@@ -934,6 +956,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -951,7 +974,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postScoreComment**
-> \Flat\APIClient\Model\ScoreComment postScoreComment($score, $body)
+> \Flat\APIClient\Model\ScoreComment postScoreComment($score, $body, $sharingKey)
 
 Post a new comment
 
@@ -968,9 +991,10 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $body = new \Flat\APIClient\Model\ScoreCommentCreation(); // \Flat\APIClient\Model\ScoreCommentCreation | 
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->postScoreComment($score, $body);
+    $result = $api_instance->postScoreComment($score, $body, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->postScoreComment: ', $e->getMessage(), PHP_EOL;
@@ -984,6 +1008,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **body** | [**\Flat\APIClient\Model\ScoreCommentCreation**](../Model/\Flat\APIClient\Model\ScoreCommentCreation.md)|  |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 
@@ -1050,7 +1075,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateScoreComment**
-> \Flat\APIClient\Model\ScoreComment updateScoreComment($score, $comment, $body)
+> \Flat\APIClient\Model\ScoreComment updateScoreComment($score, $comment, $body, $sharingKey)
 
 Update an existing comment
 
@@ -1066,9 +1091,10 @@ $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $comment = "comment_example"; // string | Unique identifier of a sheet music comment
 $body = new \Flat\APIClient\Model\ScoreCommentUpdate(); // \Flat\APIClient\Model\ScoreCommentUpdate | 
+$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $api_instance->updateScoreComment($score, $comment, $body);
+    $result = $api_instance->updateScoreComment($score, $comment, $body, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->updateScoreComment: ', $e->getMessage(), PHP_EOL;
@@ -1083,6 +1109,7 @@ Name | Type | Description  | Notes
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
  **body** | [**\Flat\APIClient\Model\ScoreCommentUpdate**](../Model/\Flat\APIClient\Model\ScoreCommentUpdate.md)|  |
+ **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
 

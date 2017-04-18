@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** | The unique identifier of the revision. | [optional] 
 **user** | **string** | The user identifier who created the revision | [optional] 
 **collaborators** | **string[]** |  | [optional] 
 **creationDate** | [**\DateTime**](\DateTime.md) | The date when this revision was created | [optional] 
