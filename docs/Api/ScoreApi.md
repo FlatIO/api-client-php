@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getScoreRevision**](ScoreApi.md#getScoreRevision) | **GET** /scores/{score}/revisions/{revision} | Get a score revision
 [**getScoreRevisionData**](ScoreApi.md#getScoreRevisionData) | **GET** /scores/{score}/revisions/{revision}/{format} | Get a score revision data
 [**getScoreRevisions**](ScoreApi.md#getScoreRevisions) | **GET** /scores/{score}/revisions | List the revisions
+[**getScoreSubmissions**](ScoreApi.md#getScoreSubmissions) | **GET** /scores/{score}/submissions | List submissions related to the score
 [**getUserScores**](ScoreApi.md#getUserScores) | **GET** /users/{user}/scores | List user&#39;s scores
 [**markScoreCommentResolved**](ScoreApi.md#markScoreCommentResolved) | **PUT** /scores/{score}/comments/{comment}/resolved | Mark the comment as resolved
 [**markScoreCommentUnresolved**](ScoreApi.md#markScoreCommentUnresolved) | **DELETE** /scores/{score}/comments/{comment}/resolved | Mark the comment as unresolved
@@ -61,7 +62,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreCollaboratorCreation**](../Model/\Flat\APIClient\Model\ScoreCollaboratorCreation.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreCollaboratorCreation**](../Model/ScoreCollaboratorCreation.md)|  |
 
 ### Return type
 
@@ -109,7 +110,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\ScoreCreation**](../Model/\Flat\APIClient\Model\ScoreCreation.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreCreation**](../Model/ScoreCreation.md)|  |
 
 ### Return type
 
@@ -159,7 +160,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreRevisionCreation**](../Model/\Flat\APIClient\Model\ScoreRevisionCreation.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreRevisionCreation**](../Model/ScoreRevisionCreation.md)|  |
 
 ### Return type
 
@@ -305,7 +306,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreModification**](../Model/\Flat\APIClient\Model\ScoreModification.md)|  | [optional]
+ **body** | [**\Flat\APIClient\Model\ScoreModification**](../Model/ScoreModification.md)|  | [optional]
 
 ### Return type
 
@@ -356,7 +357,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreFork**](../Model/\Flat\APIClient\Model\ScoreFork.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreFork**](../Model/ScoreFork.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
@@ -434,8 +435,11 @@ Get the list of scores shared with a group.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new Flat\APIClient\Api\ScoreApi();
-$group = "group_example"; // string | Unique identifier of the group
+$group = "group_example"; // string | Unique identifier of a Flat group
 $parent = "parent_example"; // string | Filter the score forked from the score id `parent`
 
 try {
@@ -451,7 +455,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | **string**| Unique identifier of the group |
+ **group** | **string**| Unique identifier of a Flat group |
  **parent** | **string**| Filter the score forked from the score id &#x60;parent&#x60; | [optional]
 
 ### Return type
@@ -460,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -683,6 +687,9 @@ When creating a score or saving a new version of a score, a revision is created 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $revision = "revision_example"; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
@@ -711,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -731,6 +738,9 @@ Retrieve the file corresponding to a score revision (the following formats are a
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Flat\APIClient\Api\ScoreApi();
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
@@ -766,7 +776,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -813,6 +823,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Flat\APIClient\Model\ScoreRevision[]**](../Model/ScoreRevision.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getScoreSubmissions**
+> \Flat\APIClient\Model\AssignmentSubmission[] getScoreSubmissions($score)
+
+List submissions related to the score
+
+This API call will list the different assignments submissions where the score is attached. This method can be used by anyone that are part of the organization and have at least read access to the document.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Flat\APIClient\Api\ScoreApi();
+$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+
+try {
+    $result = $api_instance->getScoreSubmissions($score);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ScoreApi->getScoreSubmissions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
+
+### Return type
+
+[**\Flat\APIClient\Model\AssignmentSubmission[]**](../Model/AssignmentSubmission.md)
 
 ### Authorization
 
@@ -1007,7 +1065,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreCommentCreation**](../Model/\Flat\APIClient\Model\ScoreCommentCreation.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreCommentCreation**](../Model/ScoreCommentCreation.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
@@ -1108,7 +1166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
- **body** | [**\Flat\APIClient\Model\ScoreCommentUpdate**](../Model/\Flat\APIClient\Model\ScoreCommentUpdate.md)|  |
+ **body** | [**\Flat\APIClient\Model\ScoreCommentUpdate**](../Model/ScoreCommentUpdate.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
