@@ -1,6 +1,6 @@
 <?php
 /**
- * ClassDetailsCanvas
+ * UserAdminUpdate
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace Flat\APIClient\Model;
 use \ArrayAccess;
 
 /**
- * ClassDetailsCanvas Class Doc Comment
+ * UserAdminUpdate Class Doc Comment
  *
  * @category    Class
- * @description Meta information provided by Canvs LMS
+ * @description User update as an organization admin
  * @package     Flat\APIClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassDetailsCanvas implements ArrayAccess
+class UserAdminUpdate implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,15 +48,15 @@ class ClassDetailsCanvas implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ClassDetails_canvas';
+    protected static $swaggerModelName = 'UserAdminUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'domain' => 'string'
+        'password' => 'string',
+        'organizationRole' => '\Flat\APIClient\Model\OrganizationRoles'
     ];
 
     /**
@@ -64,8 +64,8 @@ class ClassDetailsCanvas implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'domain' => null
+        'password' => 'password',
+        'organizationRole' => null
     ];
 
     public static function swaggerTypes()
@@ -83,8 +83,8 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'domain' => 'domain'
+        'password' => 'password',
+        'organizationRole' => 'organizationRole'
     ];
 
 
@@ -93,8 +93,8 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'domain' => 'setDomain'
+        'password' => 'setPassword',
+        'organizationRole' => 'setOrganizationRole'
     ];
 
 
@@ -103,8 +103,8 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'domain' => 'getDomain'
+        'password' => 'getPassword',
+        'organizationRole' => 'getOrganizationRole'
     ];
 
     public static function attributeMap()
@@ -138,8 +138,8 @@ class ClassDetailsCanvas implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['organizationRole'] = isset($data['organizationRole']) ? $data['organizationRole'] : null;
     }
 
     /**
@@ -150,6 +150,10 @@ class ClassDetailsCanvas implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+
+        if (!is_null($this->container['password']) && (strlen($this->container['password']) < 6)) {
+            $invalid_properties[] = "invalid value for 'password', the character length must be bigger than or equal to 6.";
+        }
 
         return $invalid_properties;
     }
@@ -163,48 +167,56 @@ class ClassDetailsCanvas implements ArrayAccess
     public function valid()
     {
 
+        if (strlen($this->container['password']) < 6) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets id
+     * Gets password
      * @return string
      */
-    public function getId()
+    public function getPassword()
     {
-        return $this->container['id'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets id
-     * @param string $id Unique identifier of the course on Canvas
+     * Sets password
+     * @param string $password Password of the new account
      * @return $this
      */
-    public function setId($id)
+    public function setPassword($password)
     {
-        $this->container['id'] = $id;
+
+        if (!is_null($password) && (strlen($password) < 6)) {
+            throw new \InvalidArgumentException('invalid length for $password when calling UserAdminUpdate., must be bigger than or equal to 6.');
+        }
+
+        $this->container['password'] = $password;
 
         return $this;
     }
 
     /**
-     * Gets domain
-     * @return string
+     * Gets organizationRole
+     * @return \Flat\APIClient\Model\OrganizationRoles
      */
-    public function getDomain()
+    public function getOrganizationRole()
     {
-        return $this->container['domain'];
+        return $this->container['organizationRole'];
     }
 
     /**
-     * Sets domain
-     * @param string $domain Canvas instance domain (e.g. \"canvas.instructure.com\")
+     * Sets organizationRole
+     * @param \Flat\APIClient\Model\OrganizationRoles $organizationRole
      * @return $this
      */
-    public function setDomain($domain)
+    public function setOrganizationRole($organizationRole)
     {
-        $this->container['domain'] = $domain;
+        $this->container['organizationRole'] = $organizationRole;
 
         return $this;
     }

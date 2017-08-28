@@ -4,6 +4,7 @@ All URIs are relative to *https://api.flat.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activateClass**](ClassApi.md#activateClass) | **POST** /classes/{class}/activate | Activate the class
 [**addClassUser**](ClassApi.md#addClassUser) | **PUT** /classes/{class}/users/{user} | Add a user to the class
 [**archiveClass**](ClassApi.md#archiveClass) | **POST** /classes/{class}/archive | Archive the class
 [**copyAssignment**](ClassApi.md#copyAssignment) | **POST** /classes/{class}/assignments/{assignment}/copy | Copy an assignment
@@ -23,6 +24,54 @@ Method | HTTP request | Description
 [**unarchiveClass**](ClassApi.md#unarchiveClass) | **DELETE** /classes/{class}/archive | Unarchive the class
 [**updateClass**](ClassApi.md#updateClass) | **PUT** /classes/{class} | Update the class
 
+
+# **activateClass**
+> \Flat\APIClient\Model\ClassDetails activateClass($class)
+
+Activate the class
+
+Mark the class as `active`. This is mainly used for classes synchronized from Clever that are initially with an `inactive` state and hidden in the UI.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Flat\APIClient\Api\ClassApi();
+$class = "class_example"; // string | Unique identifier of the class
+
+try {
+    $result = $api_instance->activateClass($class);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->activateClass: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **class** | **string**| Unique identifier of the class |
+
+### Return type
+
+[**\Flat\APIClient\Model\ClassDetails**](../Model/ClassDetails.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addClassUser**
 > addClassUser($class, $user)

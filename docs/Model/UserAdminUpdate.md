@@ -1,10 +1,10 @@
-# ClassDetailsCanvas
+# UserAdminUpdate
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Unique identifier of the course on Canvas | [optional] 
-**domain** | **string** | Canvas instance domain (e.g. \&quot;canvas.instructure.com\&quot;) | [optional] 
+**password** | **string** | Password of the new account | [optional] 
+**organizationRole** | [**\Flat\APIClient\Model\OrganizationRoles**](OrganizationRoles.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

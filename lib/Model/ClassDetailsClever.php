@@ -1,6 +1,6 @@
 <?php
 /**
- * ClassAttachmentCreation
+ * ClassDetailsClever
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace Flat\APIClient\Model;
 use \ArrayAccess;
 
 /**
- * ClassAttachmentCreation Class Doc Comment
+ * ClassDetailsClever Class Doc Comment
  *
  * @category    Class
- * @description Attachment creation for an assignment or stream post. This attachment must contain a &#x60;score&#x60; or an &#x60;url&#x60;, all the details of this one will be resolved and returned as &#x60;ClassAttachment&#x60; once the assignment or stream post is created.
+ * @description Clever.com section-related information
  * @package     Flat\APIClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassAttachmentCreation implements ArrayAccess
+class ClassDetailsClever implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,16 +48,20 @@ class ClassAttachmentCreation implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ClassAttachmentCreation';
+    protected static $swaggerModelName = 'ClassDetails_clever';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'score' => 'string',
-        'url' => 'string'
+        'id' => 'string',
+        'creationDate' => '\DateTime',
+        'modificationDate' => '\DateTime',
+        'subject' => 'string',
+        'termName' => 'string',
+        'termStartDate' => '\DateTime',
+        'termEndDate' => '\DateTime'
     ];
 
     /**
@@ -65,9 +69,13 @@ class ClassAttachmentCreation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'score' => null,
-        'url' => null
+        'id' => null,
+        'creationDate' => 'date-time',
+        'modificationDate' => 'date-time',
+        'subject' => null,
+        'termName' => null,
+        'termStartDate' => 'date-time',
+        'termEndDate' => 'date-time'
     ];
 
     public static function swaggerTypes()
@@ -85,9 +93,13 @@ class ClassAttachmentCreation implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'score' => 'score',
-        'url' => 'url'
+        'id' => 'id',
+        'creationDate' => 'creationDate',
+        'modificationDate' => 'modificationDate',
+        'subject' => 'subject',
+        'termName' => 'termName',
+        'termStartDate' => 'termStartDate',
+        'termEndDate' => 'termEndDate'
     ];
 
 
@@ -96,9 +108,13 @@ class ClassAttachmentCreation implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'score' => 'setScore',
-        'url' => 'setUrl'
+        'id' => 'setId',
+        'creationDate' => 'setCreationDate',
+        'modificationDate' => 'setModificationDate',
+        'subject' => 'setSubject',
+        'termName' => 'setTermName',
+        'termStartDate' => 'setTermStartDate',
+        'termEndDate' => 'setTermEndDate'
     ];
 
 
@@ -107,9 +123,13 @@ class ClassAttachmentCreation implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'score' => 'getScore',
-        'url' => 'getUrl'
+        'id' => 'getId',
+        'creationDate' => 'getCreationDate',
+        'modificationDate' => 'getModificationDate',
+        'subject' => 'getSubject',
+        'termName' => 'getTermName',
+        'termStartDate' => 'getTermStartDate',
+        'termEndDate' => 'getTermEndDate'
     ];
 
     public static function attributeMap()
@@ -127,9 +147,17 @@ class ClassAttachmentCreation implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_FLAT = 'flat';
-    const TYPE_LINK = 'link';
-    const TYPE_EXERCISE = 'exercise';
+    const SUBJECT_ENGLISHLANGUAGE_ARTS = 'english/language arts';
+    const SUBJECT_MATH = 'math';
+    const SUBJECT_SCIENCE = 'science';
+    const SUBJECT_SOCIAL_STUDIES = 'social studies';
+    const SUBJECT_LANGUAGE = 'language';
+    const SUBJECT_HOMEROOMADVISORY = 'homeroom/advisory';
+    const SUBJECT_INTERVENTIONSONLINE_LEARNING = 'interventions/online learning';
+    const SUBJECT_TECHNOLOGY_AND_ENGINEERING = 'technology and engineering';
+    const SUBJECT_PE_AND_HEALTH = 'PE and health';
+    const SUBJECT_ARTS_AND_MUSIC = 'arts and music';
+    const SUBJECT_OTHER = 'other';
     
 
     
@@ -137,12 +165,20 @@ class ClassAttachmentCreation implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getTypeAllowableValues()
+    public function getSubjectAllowableValues()
     {
         return [
-            self::TYPE_FLAT,
-            self::TYPE_LINK,
-            self::TYPE_EXERCISE,
+            self::SUBJECT_ENGLISHLANGUAGE_ARTS,
+            self::SUBJECT_MATH,
+            self::SUBJECT_SCIENCE,
+            self::SUBJECT_SOCIAL_STUDIES,
+            self::SUBJECT_LANGUAGE,
+            self::SUBJECT_HOMEROOMADVISORY,
+            self::SUBJECT_INTERVENTIONSONLINE_LEARNING,
+            self::SUBJECT_TECHNOLOGY_AND_ENGINEERING,
+            self::SUBJECT_PE_AND_HEALTH,
+            self::SUBJECT_ARTS_AND_MUSIC,
+            self::SUBJECT_OTHER,
         ];
     }
     
@@ -159,9 +195,13 @@ class ClassAttachmentCreation implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['creationDate'] = isset($data['creationDate']) ? $data['creationDate'] : null;
+        $this->container['modificationDate'] = isset($data['modificationDate']) ? $data['modificationDate'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['termName'] = isset($data['termName']) ? $data['termName'] : null;
+        $this->container['termStartDate'] = isset($data['termStartDate']) ? $data['termStartDate'] : null;
+        $this->container['termEndDate'] = isset($data['termEndDate']) ? $data['termEndDate'] : null;
     }
 
     /**
@@ -173,10 +213,10 @@ class ClassAttachmentCreation implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getTypeAllowableValues();
-        if (!in_array($this->container['type'], $allowed_values)) {
+        $allowed_values = $this->getSubjectAllowableValues();
+        if (!in_array($this->container['subject'], $allowed_values)) {
             $invalid_properties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
+                "invalid value for 'subject', must be one of '%s'",
                 implode("', '", $allowed_values)
             );
         }
@@ -193,8 +233,8 @@ class ClassAttachmentCreation implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getTypeAllowableValues();
-        if (!in_array($this->container['type'], $allowed_values)) {
+        $allowed_values = $this->getSubjectAllowableValues();
+        if (!in_array($this->container['subject'], $allowed_values)) {
             return false;
         }
         return true;
@@ -202,73 +242,157 @@ class ClassAttachmentCreation implements ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets id
      * @return string
      */
-    public function getType()
+    public function getId()
     {
-        return $this->container['type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets type
-     * @param string $type The type of the attachment posted
+     * Sets id
+     * @param string $id Clever section unique identifier
      * @return $this
      */
-    public function setType($type)
+    public function setId($id)
     {
-        $allowed_values = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowed_values)) {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets creationDate
+     * @return \DateTime
+     */
+    public function getCreationDate()
+    {
+        return $this->container['creationDate'];
+    }
+
+    /**
+     * Sets creationDate
+     * @param \DateTime $creationDate The creation date of the section on clever
+     * @return $this
+     */
+    public function setCreationDate($creationDate)
+    {
+        $this->container['creationDate'] = $creationDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets modificationDate
+     * @return \DateTime
+     */
+    public function getModificationDate()
+    {
+        return $this->container['modificationDate'];
+    }
+
+    /**
+     * Sets modificationDate
+     * @param \DateTime $modificationDate The last modification date of the section on clever
+     * @return $this
+     */
+    public function setModificationDate($modificationDate)
+    {
+        $this->container['modificationDate'] = $modificationDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     * @param string $subject Normalized subject of the course
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $allowed_values = $this->getSubjectAllowableValues();
+        if (!is_null($subject) && !in_array($subject, $allowed_values)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
+                    "Invalid value for 'subject', must be one of '%s'",
                     implode("', '", $allowed_values)
                 )
             );
         }
-        $this->container['type'] = $type;
+        $this->container['subject'] = $subject;
 
         return $this;
     }
 
     /**
-     * Gets score
+     * Gets termName
      * @return string
      */
-    public function getScore()
+    public function getTermName()
     {
-        return $this->container['score'];
+        return $this->container['termName'];
     }
 
     /**
-     * Sets score
-     * @param string $score A unique Flat score identifier. The user creating the assignment must at least have read access to the document. If the user has admin rights, new group permissions will be automatically added for the teachers and students of the class.
+     * Sets termName
+     * @param string $termName Name of the term when this course happens
      * @return $this
      */
-    public function setScore($score)
+    public function setTermName($termName)
     {
-        $this->container['score'] = $score;
+        $this->container['termName'] = $termName;
 
         return $this;
     }
 
     /**
-     * Gets url
-     * @return string
+     * Gets termStartDate
+     * @return \DateTime
      */
-    public function getUrl()
+    public function getTermStartDate()
     {
-        return $this->container['url'];
+        return $this->container['termStartDate'];
     }
 
     /**
-     * Sets url
-     * @param string $url The URL of the attachment.
+     * Sets termStartDate
+     * @param \DateTime $termStartDate Beginning date of the term
      * @return $this
      */
-    public function setUrl($url)
+    public function setTermStartDate($termStartDate)
     {
-        $this->container['url'] = $url;
+        $this->container['termStartDate'] = $termStartDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets termEndDate
+     * @return \DateTime
+     */
+    public function getTermEndDate()
+    {
+        return $this->container['termEndDate'];
+    }
+
+    /**
+     * Sets termEndDate
+     * @param \DateTime $termEndDate End date of the term
+     * @return $this
+     */
+    public function setTermEndDate($termEndDate)
+    {
+        $this->container['termEndDate'] = $termEndDate;
 
         return $this;
     }

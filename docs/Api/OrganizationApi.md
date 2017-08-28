@@ -11,7 +11,9 @@ Method | HTTP request | Description
 [**listOrganizationInvitations**](OrganizationApi.md#listOrganizationInvitations) | **GET** /organizations/invitations | List the organization invitations
 [**listOrganizationUsers**](OrganizationApi.md#listOrganizationUsers) | **GET** /organizations/users | List the organization users
 [**removeOrganizationInvitation**](OrganizationApi.md#removeOrganizationInvitation) | **DELETE** /organizations/invitations/{invitation} | Remove an organization invitation
+[**removeOrganizationUser**](OrganizationApi.md#removeOrganizationUser) | **DELETE** /organizations/users/{user} | Remove an account from Flat
 [**revokeLtiCredentials**](OrganizationApi.md#revokeLtiCredentials) | **DELETE** /organizations/lti/credentials/{credentials} | Revoke LTI 1.x credentials
+[**updateOrganizationUser**](OrganizationApi.md#updateOrganizationUser) | **PUT** /organizations/users/{user} | Update account information
 
 
 # **createLtiCredentials**
@@ -199,7 +201,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationInvitations**
-> \Flat\APIClient\Model\OrganizationInvitation[] listOrganizationInvitations($role, $limit, $offset)
+> \Flat\APIClient\Model\OrganizationInvitation[] listOrganizationInvitations($role, $limit, $next, $previous)
 
 List the organization invitations
 
@@ -213,11 +215,12 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\OrganizationApi();
 $role = "role_example"; // string | Filter users by role
-$limit = 100; // int | This is the maximum number of objects that may be returned
-$offset = 0; // int | This offsets the start of each page by the number specified
+$limit = 50; // int | This is the maximum number of objects that may be returned
+$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
-    $result = $api_instance->listOrganizationInvitations($role, $limit, $offset);
+    $result = $api_instance->listOrganizationInvitations($role, $limit, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->listOrganizationInvitations: ', $e->getMessage(), PHP_EOL;
@@ -230,8 +233,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **string**| Filter users by role | [optional]
- **limit** | **int**| This is the maximum number of objects that may be returned | [optional] [default to 100]
- **offset** | **int**| This offsets the start of each page by the number specified | [optional] [default to 0]
+ **limit** | **int**| This is the maximum number of objects that may be returned | [optional] [default to 50]
+ **next** | **string**| An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. | [optional]
+ **previous** | **string**| An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. | [optional]
 
 ### Return type
 
@@ -249,7 +253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationUsers**
-> \Flat\APIClient\Model\UserDetailsAdmin[] listOrganizationUsers($role, $limit, $offset)
+> \Flat\APIClient\Model\UserDetailsAdmin[] listOrganizationUsers($role, $limit, $next, $previous)
 
 List the organization users
 
@@ -263,11 +267,12 @@ Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_AC
 
 $api_instance = new Flat\APIClient\Api\OrganizationApi();
 $role = "role_example"; // string | Filter users by role
-$limit = 100; // int | This is the maximum number of objects that may be returned
-$offset = 0; // int | This offsets the start of each page by the number specified
+$limit = 50; // int | This is the maximum number of objects that may be returned
+$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
-    $result = $api_instance->listOrganizationUsers($role, $limit, $offset);
+    $result = $api_instance->listOrganizationUsers($role, $limit, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->listOrganizationUsers: ', $e->getMessage(), PHP_EOL;
@@ -280,8 +285,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **string**| Filter users by role | [optional]
- **limit** | **int**| This is the maximum number of objects that may be returned | [optional] [default to 100]
- **offset** | **int**| This offsets the start of each page by the number specified | [optional] [default to 0]
+ **limit** | **int**| This is the maximum number of objects that may be returned | [optional] [default to 50]
+ **next** | **string**| An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. | [optional]
+ **previous** | **string**| An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. | [optional]
 
 ### Return type
 
@@ -343,6 +349,55 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **removeOrganizationUser**
+> removeOrganizationUser($user, $convertToIndividual)
+
+Remove an account from Flat
+
+This operation removes an account from Flat and its data, including: * The music scores created by this user (documents, history, comments, collaboration information) * Education related data (assignments and classroom information)
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$user = "user_example"; // string | Unique identifier of the Flat account
+$convertToIndividual = true; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.
+
+try {
+    $api_instance->removeOrganizationUser($user, $convertToIndividual);
+} catch (Exception $e) {
+    echo 'Exception when calling OrganizationApi->removeOrganizationUser: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **string**| Unique identifier of the Flat account |
+ **convertToIndividual** | **bool**| If &#x60;true&#x60;, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **revokeLtiCredentials**
 > revokeLtiCredentials($credentials)
 
@@ -376,6 +431,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateOrganizationUser**
+> \Flat\APIClient\Model\UserDetailsAdmin updateOrganizationUser($user, $body)
+
+Update account information
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$user = "user_example"; // string | Unique identifier of the Flat account
+$body = new \Flat\APIClient\Model\UserAdminUpdate(); // \Flat\APIClient\Model\UserAdminUpdate | 
+
+try {
+    $result = $api_instance->updateOrganizationUser($user, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrganizationApi->updateOrganizationUser: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **string**| Unique identifier of the Flat account |
+ **body** | [**\Flat\APIClient\Model\UserAdminUpdate**](../Model/UserAdminUpdate.md)|  |
+
+### Return type
+
+[**\Flat\APIClient\Model\UserDetailsAdmin**](../Model/UserDetailsAdmin.md)
 
 ### Authorization
 

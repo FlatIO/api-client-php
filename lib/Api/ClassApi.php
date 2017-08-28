@@ -88,6 +88,96 @@ class ClassApi
     }
 
     /**
+     * Operation activateClass
+     *
+     * Activate the class
+     *
+     * @param string $class Unique identifier of the class (required)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return \Flat\APIClient\Model\ClassDetails
+     */
+    public function activateClass($class)
+    {
+        list($response) = $this->activateClassWithHttpInfo($class);
+        return $response;
+    }
+
+    /**
+     * Operation activateClassWithHttpInfo
+     *
+     * Activate the class
+     *
+     * @param string $class Unique identifier of the class (required)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return array of \Flat\APIClient\Model\ClassDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function activateClassWithHttpInfo($class)
+    {
+        // verify the required parameter 'class' is set
+        if ($class === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $class when calling activateClass');
+        }
+        // parse inputs
+        $resourcePath = "/classes/{class}/activate";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($class !== null) {
+            $resourcePath = str_replace(
+                "{" . "class" . "}",
+                $this->apiClient->getSerializer()->toPathValue($class),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Flat\APIClient\Model\ClassDetails',
+                '/classes/{class}/activate'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Flat\APIClient\Model\ClassDetails', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\ClassDetails', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\FlatErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation addClassUser
      *
      * Add a user to the class

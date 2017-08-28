@@ -167,6 +167,7 @@ class Assignment implements ArrayAccess
         return self::$getters;
     }
 
+    const STATE_DRAFT = 'draft';
     const STATE_ACTIVE = 'active';
     const STATE_ARCHIVED = 'archived';
     
@@ -179,6 +180,7 @@ class Assignment implements ArrayAccess
     public function getStateAllowableValues()
     {
         return [
+            self::STATE_DRAFT,
             self::STATE_ACTIVE,
             self::STATE_ARCHIVED,
         ];

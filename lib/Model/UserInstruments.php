@@ -1,6 +1,6 @@
 <?php
 /**
- * ClassDetailsCanvas
+ * UserInstruments
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace Flat\APIClient\Model;
 use \ArrayAccess;
 
 /**
- * ClassDetailsCanvas Class Doc Comment
+ * UserInstruments Class Doc Comment
  *
  * @category    Class
- * @description Meta information provided by Canvs LMS
+ * @description An array of the instrument identifiers that the user plays. This is mainly used to display a list of the instruments in the Flat&#39;s UI or instruments icons. The format of the strings is &#x60;{instrument-group}.{instrument-id}&#x60;.
  * @package     Flat\APIClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassDetailsCanvas implements ArrayAccess
+class UserInstruments implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,15 +48,14 @@ class ClassDetailsCanvas implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ClassDetails_canvas';
+    protected static $swaggerModelName = 'UserInstruments';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'domain' => 'string'
+        
     ];
 
     /**
@@ -64,8 +63,7 @@ class ClassDetailsCanvas implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'domain' => null
+        
     ];
 
     public static function swaggerTypes()
@@ -83,8 +81,7 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'domain' => 'domain'
+        
     ];
 
 
@@ -93,8 +90,7 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'domain' => 'setDomain'
+        
     ];
 
 
@@ -103,8 +99,7 @@ class ClassDetailsCanvas implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'domain' => 'getDomain'
+        
     ];
 
     public static function attributeMap()
@@ -138,8 +133,6 @@ class ClassDetailsCanvas implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
     }
 
     /**
@@ -149,7 +142,7 @@ class ClassDetailsCanvas implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -162,52 +155,13 @@ class ClassDetailsCanvas implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Unique identifier of the course on Canvas
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets domain
-     * @return string
-     */
-    public function getDomain()
-    {
-        return $this->container['domain'];
-    }
-
-    /**
-     * Sets domain
-     * @param string $domain Canvas instance domain (e.g. \"canvas.instructure.com\")
-     * @return $this
-     */
-    public function setDomain($domain)
-    {
-        $this->container['domain'] = $domain;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

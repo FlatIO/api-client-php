@@ -71,7 +71,8 @@ class ClassDetails implements ArrayAccess
         'googleClassroom' => '\Flat\APIClient\Model\ClassDetailsGoogleClassroom',
         'googleDrive' => '\Flat\APIClient\Model\ClassDetailsGoogleDrive',
         'lti' => '\Flat\APIClient\Model\ClassDetailsLti',
-        'canvas' => '\Flat\APIClient\Model\ClassDetailsCanvas'
+        'canvas' => '\Flat\APIClient\Model\ClassDetailsCanvas',
+        'clever' => '\Flat\APIClient\Model\ClassDetailsClever'
     ];
 
     /**
@@ -95,7 +96,8 @@ class ClassDetails implements ArrayAccess
         'googleClassroom' => null,
         'googleDrive' => null,
         'lti' => null,
-        'canvas' => null
+        'canvas' => null,
+        'clever' => null
     ];
 
     public static function swaggerTypes()
@@ -129,7 +131,8 @@ class ClassDetails implements ArrayAccess
         'googleClassroom' => 'googleClassroom',
         'googleDrive' => 'googleDrive',
         'lti' => 'lti',
-        'canvas' => 'canvas'
+        'canvas' => 'canvas',
+        'clever' => 'clever'
     ];
 
 
@@ -154,7 +157,8 @@ class ClassDetails implements ArrayAccess
         'googleClassroom' => 'setGoogleClassroom',
         'googleDrive' => 'setGoogleDrive',
         'lti' => 'setLti',
-        'canvas' => 'setCanvas'
+        'canvas' => 'setCanvas',
+        'clever' => 'setClever'
     ];
 
 
@@ -179,7 +183,8 @@ class ClassDetails implements ArrayAccess
         'googleClassroom' => 'getGoogleClassroom',
         'googleDrive' => 'getGoogleDrive',
         'lti' => 'getLti',
-        'canvas' => 'getCanvas'
+        'canvas' => 'getCanvas',
+        'clever' => 'getClever'
     ];
 
     public static function attributeMap()
@@ -230,6 +235,7 @@ class ClassDetails implements ArrayAccess
         $this->container['googleDrive'] = isset($data['googleDrive']) ? $data['googleDrive'] : null;
         $this->container['lti'] = isset($data['lti']) ? $data['lti'] : null;
         $this->container['canvas'] = isset($data['canvas']) ? $data['canvas'] : null;
+        $this->container['clever'] = isset($data['clever']) ? $data['clever'] : null;
     }
 
     /**
@@ -610,6 +616,27 @@ class ClassDetails implements ArrayAccess
     public function setCanvas($canvas)
     {
         $this->container['canvas'] = $canvas;
+
+        return $this;
+    }
+
+    /**
+     * Gets clever
+     * @return \Flat\APIClient\Model\ClassDetailsClever
+     */
+    public function getClever()
+    {
+        return $this->container['clever'];
+    }
+
+    /**
+     * Sets clever
+     * @param \Flat\APIClient\Model\ClassDetailsClever $clever
+     * @return $this
+     */
+    public function setClever($clever)
+    {
+        $this->container['clever'] = $clever;
 
         return $this;
     }

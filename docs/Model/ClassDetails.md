@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **googleDrive** | [**\Flat\APIClient\Model\ClassDetailsGoogleDrive**](ClassDetailsGoogleDrive.md) |  | [optional] 
 **lti** | [**\Flat\APIClient\Model\ClassDetailsLti**](ClassDetailsLti.md) |  | [optional] 
 **canvas** | [**\Flat\APIClient\Model\ClassDetailsCanvas**](ClassDetailsCanvas.md) |  | [optional] 
+**clever** | [**\Flat\APIClient\Model\ClassDetailsClever**](ClassDetailsClever.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

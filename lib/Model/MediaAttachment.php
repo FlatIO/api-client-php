@@ -58,6 +58,7 @@ class MediaAttachment implements ArrayAccess
         'type' => 'string',
         'score' => 'string',
         'revision' => 'string',
+        'correct' => 'bool',
         'sharingMode' => '\Flat\APIClient\Model\MediaScoreSharingMode',
         'title' => 'string',
         'description' => 'string',
@@ -80,6 +81,7 @@ class MediaAttachment implements ArrayAccess
         'type' => null,
         'score' => null,
         'revision' => null,
+        'correct' => null,
         'sharingMode' => null,
         'title' => null,
         'description' => null,
@@ -112,6 +114,7 @@ class MediaAttachment implements ArrayAccess
         'type' => 'type',
         'score' => 'score',
         'revision' => 'revision',
+        'correct' => 'correct',
         'sharingMode' => 'sharingMode',
         'title' => 'title',
         'description' => 'description',
@@ -135,6 +138,7 @@ class MediaAttachment implements ArrayAccess
         'type' => 'setType',
         'score' => 'setScore',
         'revision' => 'setRevision',
+        'correct' => 'setCorrect',
         'sharingMode' => 'setSharingMode',
         'title' => 'setTitle',
         'description' => 'setDescription',
@@ -158,6 +162,7 @@ class MediaAttachment implements ArrayAccess
         'type' => 'getType',
         'score' => 'getScore',
         'revision' => 'getRevision',
+        'correct' => 'getCorrect',
         'sharingMode' => 'getSharingMode',
         'title' => 'getTitle',
         'description' => 'getDescription',
@@ -192,6 +197,7 @@ class MediaAttachment implements ArrayAccess
     const TYPE_VIDEO = 'video';
     const TYPE_LINK = 'link';
     const TYPE_FLAT = 'flat';
+    const TYPE_EXERCISE = 'exercise';
     
 
     
@@ -207,6 +213,7 @@ class MediaAttachment implements ArrayAccess
             self::TYPE_VIDEO,
             self::TYPE_LINK,
             self::TYPE_FLAT,
+            self::TYPE_EXERCISE,
         ];
     }
     
@@ -226,6 +233,7 @@ class MediaAttachment implements ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;
         $this->container['revision'] = isset($data['revision']) ? $data['revision'] : null;
+        $this->container['correct'] = isset($data['correct']) ? $data['correct'] : null;
         $this->container['sharingMode'] = isset($data['sharingMode']) ? $data['sharingMode'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -345,6 +353,27 @@ class MediaAttachment implements ArrayAccess
     public function setRevision($revision)
     {
         $this->container['revision'] = $revision;
+
+        return $this;
+    }
+
+    /**
+     * Gets correct
+     * @return bool
+     */
+    public function getCorrect()
+    {
+        return $this->container['correct'];
+    }
+
+    /**
+     * Sets correct
+     * @param bool $correct If the attachment is an exercise question, this state will describe if it is correct or not.For exercise assignments only.
+     * @return $this
+     */
+    public function setCorrect($correct)
+    {
+        $this->container['correct'] = $correct;
 
         return $this;
     }

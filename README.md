@@ -83,6 +83,7 @@ All URIs are relative to *https://api.flat.io/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**getAuthenticatedUser**](docs/Api/AccountApi.md#getauthenticateduser) | **GET** /me | Get current user profile
+*ClassApi* | [**activateClass**](docs/Api/ClassApi.md#activateclass) | **POST** /classes/{class}/activate | Activate the class
 *ClassApi* | [**addClassUser**](docs/Api/ClassApi.md#addclassuser) | **PUT** /classes/{class}/users/{user} | Add a user to the class
 *ClassApi* | [**archiveClass**](docs/Api/ClassApi.md#archiveclass) | **POST** /classes/{class}/archive | Archive the class
 *ClassApi* | [**copyAssignment**](docs/Api/ClassApi.md#copyassignment) | **POST** /classes/{class}/assignments/{assignment}/copy | Copy an assignment
@@ -111,7 +112,9 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**listOrganizationInvitations**](docs/Api/OrganizationApi.md#listorganizationinvitations) | **GET** /organizations/invitations | List the organization invitations
 *OrganizationApi* | [**listOrganizationUsers**](docs/Api/OrganizationApi.md#listorganizationusers) | **GET** /organizations/users | List the organization users
 *OrganizationApi* | [**removeOrganizationInvitation**](docs/Api/OrganizationApi.md#removeorganizationinvitation) | **DELETE** /organizations/invitations/{invitation} | Remove an organization invitation
+*OrganizationApi* | [**removeOrganizationUser**](docs/Api/OrganizationApi.md#removeorganizationuser) | **DELETE** /organizations/users/{user} | Remove an account from Flat
 *OrganizationApi* | [**revokeLtiCredentials**](docs/Api/OrganizationApi.md#revokelticredentials) | **DELETE** /organizations/lti/credentials/{credentials} | Revoke LTI 1.x credentials
+*OrganizationApi* | [**updateOrganizationUser**](docs/Api/OrganizationApi.md#updateorganizationuser) | **PUT** /organizations/users/{user} | Update account information
 *ScoreApi* | [**addScoreCollaborator**](docs/Api/ScoreApi.md#addscorecollaborator) | **POST** /scores/{score}/collaborators | Add a new collaborator
 *ScoreApi* | [**createScore**](docs/Api/ScoreApi.md#createscore) | **POST** /scores | Create a new score
 *ScoreApi* | [**createScoreRevision**](docs/Api/ScoreApi.md#createscorerevision) | **POST** /scores/{score}/revisions | Create a new revision
@@ -151,12 +154,12 @@ Class | Method | HTTP request | Description
  - [ClassCreation](docs/Model/ClassCreation.md)
  - [ClassDetails](docs/Model/ClassDetails.md)
  - [ClassDetailsCanvas](docs/Model/ClassDetailsCanvas.md)
+ - [ClassDetailsClever](docs/Model/ClassDetailsClever.md)
  - [ClassDetailsGoogleClassroom](docs/Model/ClassDetailsGoogleClassroom.md)
  - [ClassDetailsGoogleDrive](docs/Model/ClassDetailsGoogleDrive.md)
  - [ClassDetailsLti](docs/Model/ClassDetailsLti.md)
  - [ClassRoles](docs/Model/ClassRoles.md)
  - [ClassState](docs/Model/ClassState.md)
- - [ClassStreamPostMode](docs/Model/ClassStreamPostMode.md)
  - [ClassUpdate](docs/Model/ClassUpdate.md)
  - [FlatErrorResponse](docs/Model/FlatErrorResponse.md)
  - [FlatLocales](docs/Model/FlatLocales.md)
@@ -196,9 +199,11 @@ Class | Method | HTTP request | Description
  - [ScoreSource](docs/Model/ScoreSource.md)
  - [ScoreSummary](docs/Model/ScoreSummary.md)
  - [ScoreViewsCounts](docs/Model/ScoreViewsCounts.md)
+ - [UserAdminUpdate](docs/Model/UserAdminUpdate.md)
  - [UserBasics](docs/Model/UserBasics.md)
  - [UserCreation](docs/Model/UserCreation.md)
  - [UserDetailsAdminLicense](docs/Model/UserDetailsAdminLicense.md)
+ - [UserInstruments](docs/Model/UserInstruments.md)
  - [ScoreDetails](docs/Model/ScoreDetails.md)
  - [UserPublicSummary](docs/Model/UserPublicSummary.md)
  - [UserDetailsAdmin](docs/Model/UserDetailsAdmin.md)

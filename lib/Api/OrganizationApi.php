@@ -430,14 +430,15 @@ class OrganizationApi
      * List the organization invitations
      *
      * @param string $role Filter users by role (optional)
-     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 100)
-     * @param int $offset This offsets the start of each page by the number specified (optional, default to 0)
+     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 50)
+     * @param string $next An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
+     * @param string $previous An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
      * @throws \Flat\APIClient\ApiException on non-2xx response
      * @return \Flat\APIClient\Model\OrganizationInvitation[]
      */
-    public function listOrganizationInvitations($role = null, $limit = '100', $offset = '0')
+    public function listOrganizationInvitations($role = null, $limit = '50', $next = null, $previous = null)
     {
-        list($response) = $this->listOrganizationInvitationsWithHttpInfo($role, $limit, $offset);
+        list($response) = $this->listOrganizationInvitationsWithHttpInfo($role, $limit, $next, $previous);
         return $response;
     }
 
@@ -447,22 +448,19 @@ class OrganizationApi
      * List the organization invitations
      *
      * @param string $role Filter users by role (optional)
-     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 100)
-     * @param int $offset This offsets the start of each page by the number specified (optional, default to 0)
+     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 50)
+     * @param string $next An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
+     * @param string $previous An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
      * @throws \Flat\APIClient\ApiException on non-2xx response
      * @return array of \Flat\APIClient\Model\OrganizationInvitation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOrganizationInvitationsWithHttpInfo($role = null, $limit = '100', $offset = '0')
+    public function listOrganizationInvitationsWithHttpInfo($role = null, $limit = '50', $next = null, $previous = null)
     {
         if (!is_null($limit) && ($limit > 1000)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationApi.listOrganizationInvitations, must be smaller than or equal to 1000.');
         }
         if (!is_null($limit) && ($limit < 1)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationApi.listOrganizationInvitations, must be bigger than or equal to 1.');
-        }
-
-        if (!is_null($offset) && ($offset < 0)) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling OrganizationApi.listOrganizationInvitations, must be bigger than or equal to 0.');
         }
 
         // parse inputs
@@ -486,8 +484,12 @@ class OrganizationApi
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        if ($next !== null) {
+            $queryParams['next'] = $this->apiClient->getSerializer()->toQueryValue($next);
+        }
+        // query params
+        if ($previous !== null) {
+            $queryParams['previous'] = $this->apiClient->getSerializer()->toQueryValue($previous);
         }
 
         // for model (json/xml)
@@ -535,14 +537,15 @@ class OrganizationApi
      * List the organization users
      *
      * @param string $role Filter users by role (optional)
-     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 100)
-     * @param int $offset This offsets the start of each page by the number specified (optional, default to 0)
+     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 50)
+     * @param string $next An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
+     * @param string $previous An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
      * @throws \Flat\APIClient\ApiException on non-2xx response
      * @return \Flat\APIClient\Model\UserDetailsAdmin[]
      */
-    public function listOrganizationUsers($role = null, $limit = '100', $offset = '0')
+    public function listOrganizationUsers($role = null, $limit = '50', $next = null, $previous = null)
     {
-        list($response) = $this->listOrganizationUsersWithHttpInfo($role, $limit, $offset);
+        list($response) = $this->listOrganizationUsersWithHttpInfo($role, $limit, $next, $previous);
         return $response;
     }
 
@@ -552,22 +555,19 @@ class OrganizationApi
      * List the organization users
      *
      * @param string $role Filter users by role (optional)
-     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 100)
-     * @param int $offset This offsets the start of each page by the number specified (optional, default to 0)
+     * @param int $limit This is the maximum number of objects that may be returned (optional, default to 50)
+     * @param string $next An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
+     * @param string $previous An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the &#x60;Link&#x60; header when requesting the API. These URLs will contain a &#x60;next&#x60; and &#x60;previous&#x60; cursor based on the available data. (optional)
      * @throws \Flat\APIClient\ApiException on non-2xx response
      * @return array of \Flat\APIClient\Model\UserDetailsAdmin[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOrganizationUsersWithHttpInfo($role = null, $limit = '100', $offset = '0')
+    public function listOrganizationUsersWithHttpInfo($role = null, $limit = '50', $next = null, $previous = null)
     {
         if (!is_null($limit) && ($limit > 1000)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationApi.listOrganizationUsers, must be smaller than or equal to 1000.');
         }
         if (!is_null($limit) && ($limit < 1)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationApi.listOrganizationUsers, must be bigger than or equal to 1.');
-        }
-
-        if (!is_null($offset) && ($offset < 0)) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling OrganizationApi.listOrganizationUsers, must be bigger than or equal to 0.');
         }
 
         // parse inputs
@@ -591,8 +591,12 @@ class OrganizationApi
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        if ($next !== null) {
+            $queryParams['next'] = $this->apiClient->getSerializer()->toQueryValue($next);
+        }
+        // query params
+        if ($previous !== null) {
+            $queryParams['previous'] = $this->apiClient->getSerializer()->toQueryValue($previous);
         }
 
         // for model (json/xml)
@@ -721,6 +725,98 @@ class OrganizationApi
     }
 
     /**
+     * Operation removeOrganizationUser
+     *
+     * Remove an account from Flat
+     *
+     * @param string $user Unique identifier of the Flat account (required)
+     * @param bool $convertToIndividual If &#x60;true&#x60;, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal. (optional)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return void
+     */
+    public function removeOrganizationUser($user, $convertToIndividual = null)
+    {
+        list($response) = $this->removeOrganizationUserWithHttpInfo($user, $convertToIndividual);
+        return $response;
+    }
+
+    /**
+     * Operation removeOrganizationUserWithHttpInfo
+     *
+     * Remove an account from Flat
+     *
+     * @param string $user Unique identifier of the Flat account (required)
+     * @param bool $convertToIndividual If &#x60;true&#x60;, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal. (optional)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeOrganizationUserWithHttpInfo($user, $convertToIndividual = null)
+    {
+        // verify the required parameter 'user' is set
+        if ($user === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user when calling removeOrganizationUser');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/users/{user}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($convertToIndividual !== null) {
+            $queryParams['convertToIndividual'] = $this->apiClient->getSerializer()->toQueryValue($convertToIndividual);
+        }
+        // path params
+        if ($user !== null) {
+            $resourcePath = str_replace(
+                "{" . "user" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/organizations/users/{user}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\FlatErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation revokeLtiCredentials
      *
      * Revoke LTI 1.x credentials
@@ -802,6 +898,107 @@ class OrganizationApi
                     break;
                 case 404:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\FlatErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\FlatErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateOrganizationUser
+     *
+     * Update account information
+     *
+     * @param string $user Unique identifier of the Flat account (required)
+     * @param \Flat\APIClient\Model\UserAdminUpdate $body  (required)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return \Flat\APIClient\Model\UserDetailsAdmin
+     */
+    public function updateOrganizationUser($user, $body)
+    {
+        list($response) = $this->updateOrganizationUserWithHttpInfo($user, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateOrganizationUserWithHttpInfo
+     *
+     * Update account information
+     *
+     * @param string $user Unique identifier of the Flat account (required)
+     * @param \Flat\APIClient\Model\UserAdminUpdate $body  (required)
+     * @throws \Flat\APIClient\ApiException on non-2xx response
+     * @return array of \Flat\APIClient\Model\UserDetailsAdmin, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateOrganizationUserWithHttpInfo($user, $body)
+    {
+        // verify the required parameter 'user' is set
+        if ($user === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user when calling updateOrganizationUser');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateOrganizationUser');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/users/{user}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($user !== null) {
+            $resourcePath = str_replace(
+                "{" . "user" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Flat\APIClient\Model\UserDetailsAdmin',
+                '/organizations/users/{user}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Flat\APIClient\Model\UserDetailsAdmin', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Flat\APIClient\Model\UserDetailsAdmin', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

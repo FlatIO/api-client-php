@@ -60,7 +60,9 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         'likedScoresCount' => 'int',
         'followersCount' => 'int',
         'followingCount' => 'int',
-        'ownedPublicScoresCount' => 'int'
+        'ownedPublicScoresCount' => 'int',
+        'profileTheme' => 'string',
+        'instruments' => '\Flat\APIClient\Model\UserInstruments'
     ];
 
     /**
@@ -73,7 +75,9 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         'likedScoresCount' => null,
         'followersCount' => null,
         'followingCount' => null,
-        'ownedPublicScoresCount' => null
+        'ownedPublicScoresCount' => null,
+        'profileTheme' => null,
+        'instruments' => null
     ];
 
     public static function swaggerTypes()
@@ -96,7 +100,9 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         'likedScoresCount' => 'likedScoresCount',
         'followersCount' => 'followersCount',
         'followingCount' => 'followingCount',
-        'ownedPublicScoresCount' => 'ownedPublicScoresCount'
+        'ownedPublicScoresCount' => 'ownedPublicScoresCount',
+        'profileTheme' => 'profileTheme',
+        'instruments' => 'instruments'
     ];
 
 
@@ -110,7 +116,9 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         'likedScoresCount' => 'setLikedScoresCount',
         'followersCount' => 'setFollowersCount',
         'followingCount' => 'setFollowingCount',
-        'ownedPublicScoresCount' => 'setOwnedPublicScoresCount'
+        'ownedPublicScoresCount' => 'setOwnedPublicScoresCount',
+        'profileTheme' => 'setProfileTheme',
+        'instruments' => 'setInstruments'
     ];
 
 
@@ -124,7 +132,9 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         'likedScoresCount' => 'getLikedScoresCount',
         'followersCount' => 'getFollowersCount',
         'followingCount' => 'getFollowingCount',
-        'ownedPublicScoresCount' => 'getOwnedPublicScoresCount'
+        'ownedPublicScoresCount' => 'getOwnedPublicScoresCount',
+        'profileTheme' => 'getProfileTheme',
+        'instruments' => 'getInstruments'
     ];
 
     public static function attributeMap()
@@ -166,6 +176,8 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
         $this->container['followersCount'] = isset($data['followersCount']) ? $data['followersCount'] : null;
         $this->container['followingCount'] = isset($data['followingCount']) ? $data['followingCount'] : null;
         $this->container['ownedPublicScoresCount'] = isset($data['ownedPublicScoresCount']) ? $data['ownedPublicScoresCount'] : null;
+        $this->container['profileTheme'] = isset($data['profileTheme']) ? $data['profileTheme'] : null;
+        $this->container['instruments'] = isset($data['instruments']) ? $data['instruments'] : null;
     }
 
     /**
@@ -312,12 +324,54 @@ class UserPublic extends UserPublicSummary implements ArrayAccess
 
     /**
      * Sets ownedPublicScoresCount
-     * @param int $ownedPublicScoresCount Number of public score the user have
+     * @param int $ownedPublicScoresCount Number of public scores the user have
      * @return $this
      */
     public function setOwnedPublicScoresCount($ownedPublicScoresCount)
     {
         $this->container['ownedPublicScoresCount'] = $ownedPublicScoresCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets profileTheme
+     * @return string
+     */
+    public function getProfileTheme()
+    {
+        return $this->container['profileTheme'];
+    }
+
+    /**
+     * Sets profileTheme
+     * @param string $profileTheme Theme (background) for the profile
+     * @return $this
+     */
+    public function setProfileTheme($profileTheme)
+    {
+        $this->container['profileTheme'] = $profileTheme;
+
+        return $this;
+    }
+
+    /**
+     * Gets instruments
+     * @return \Flat\APIClient\Model\UserInstruments
+     */
+    public function getInstruments()
+    {
+        return $this->container['instruments'];
+    }
+
+    /**
+     * Sets instruments
+     * @param \Flat\APIClient\Model\UserInstruments $instruments
+     * @return $this
+     */
+    public function setInstruments($instruments)
+    {
+        $this->container['instruments'] = $instruments;
 
         return $this;
     }
