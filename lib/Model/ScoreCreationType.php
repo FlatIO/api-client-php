@@ -1,6 +1,6 @@
 <?php
 /**
- * LmsName
+ * ScoreCreationType
  *
  * PHP version 5
  *
@@ -30,25 +30,21 @@
 namespace Flat\APIClient\Model;
 
 /**
- * LmsName Class Doc Comment
+ * ScoreCreationType Class Doc Comment
  *
  * @category    Class
- * @description LMS name
+ * @description The type of creation (an orginal, an arrangement)
  * @package     Flat\APIClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class LmsName
+class ScoreCreationType
 {
     /**
      * Possible values of this enum
      */
-    const CANVAS = 'canvas';
-    const MOODLE = 'moodle';
-    const SCHOOLOGY = 'schoology';
-    const BLACKBOARD = 'blackboard';
-    const DESIRE2LEARN = 'desire2learn';
-    const SAKAI = 'sakai';
+    const ORIGINAL = 'original';
+    const ARRANGEMENT = 'arrangement';
     const OTHER = 'other';
     
     /**
@@ -58,12 +54,8 @@ class LmsName
     public static function getAllowableEnumValues()
     {
         return [
-            self::CANVAS,
-            self::MOODLE,
-            self::SCHOOLOGY,
-            self::BLACKBOARD,
-            self::DESIRE2LEARN,
-            self::SAKAI,
+            self::ORIGINAL,
+            self::ARRANGEMENT,
             self::OTHER,
         ];
     }

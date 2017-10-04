@@ -186,9 +186,11 @@ Class | Method | HTTP request | Description
  - [ScoreCommentUpdate](docs/Model/ScoreCommentUpdate.md)
  - [ScoreCommentsCounts](docs/Model/ScoreCommentsCounts.md)
  - [ScoreCreation](docs/Model/ScoreCreation.md)
+ - [ScoreCreationType](docs/Model/ScoreCreationType.md)
  - [ScoreData](docs/Model/ScoreData.md)
  - [ScoreDataEncoding](docs/Model/ScoreDataEncoding.md)
  - [ScoreFork](docs/Model/ScoreFork.md)
+ - [ScoreLicense](docs/Model/ScoreLicense.md)
  - [ScoreLikesCounts](docs/Model/ScoreLikesCounts.md)
  - [ScoreModification](docs/Model/ScoreModification.md)
  - [ScorePrivacy](docs/Model/ScorePrivacy.md)
@@ -239,3 +241,5 @@ Class | Method | HTTP request | Description
 ## Author
 
 developers@flat.io
+
+

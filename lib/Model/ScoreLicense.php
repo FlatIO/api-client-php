@@ -1,6 +1,6 @@
 <?php
 /**
- * LmsName
+ * ScoreLicense
  *
  * PHP version 5
  *
@@ -30,26 +30,27 @@
 namespace Flat\APIClient\Model;
 
 /**
- * LmsName Class Doc Comment
+ * ScoreLicense Class Doc Comment
  *
  * @category    Class
- * @description LMS name
+ * @description License of the creation. Read more about the Creative Commons licenses on https://creativecommons.org/licenses/
  * @package     Flat\APIClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class LmsName
+class ScoreLicense
 {
     /**
      * Possible values of this enum
      */
-    const CANVAS = 'canvas';
-    const MOODLE = 'moodle';
-    const SCHOOLOGY = 'schoology';
-    const BLACKBOARD = 'blackboard';
-    const DESIRE2LEARN = 'desire2learn';
-    const SAKAI = 'sakai';
-    const OTHER = 'other';
+    const COPYRIGHT = 'copyright';
+    const CC0 = 'cc0';
+    const CC_BY = 'cc-by';
+    const CC_BY_SA = 'cc-by-sa';
+    const CC_BY_ND = 'cc-by-nd';
+    const CC_BY_NC = 'cc-by-nc';
+    const CC_BY_NC_SA = 'cc-by-nc-sa';
+    const CC_BY_NC_ND = 'cc-by-nc-nd';
     
     /**
      * Gets allowable values of the enum
@@ -58,13 +59,14 @@ class LmsName
     public static function getAllowableEnumValues()
     {
         return [
-            self::CANVAS,
-            self::MOODLE,
-            self::SCHOOLOGY,
-            self::BLACKBOARD,
-            self::DESIRE2LEARN,
-            self::SAKAI,
-            self::OTHER,
+            self::COPYRIGHT,
+            self::CC0,
+            self::CC_BY,
+            self::CC_BY_SA,
+            self::CC_BY_ND,
+            self::CC_BY_NC,
+            self::CC_BY_NC_SA,
+            self::CC_BY_NC_ND,
         ];
     }
 }
