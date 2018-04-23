@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.8.0 (API v2.6.0)
+
+* feat(collections): Add new Collections API endpoints
+  * `POST /collections`: Create new collection
+  * `GET /collections`: List collections
+  * `GET /collections/{collection}`: Get collection details
+  * `PUT /collections/{collection}`: Update collection details
+  * `DELETE /collections/{collection}`: Delete collection
+  * `POST /collections/{collection}/untrash`: Untrash collection
+  * `GET /collections/{collection}/scores`: List scores contained in a collection
+  * `PUT /collections/{collection}/scores/{score}`: Add a score to a collection
+  * `DELETE /collections/{collection}/scores/{score}`: Remove a score from a collection
+* feat(collections): Add new OAuth2 scopes for new features:
+  * `collections.readonly`: Allow read-only access to a user's collections.
+  * `collections.add_scores`: Allow to add scores to a user's collections.
+  * `collections`: Full, permissive scope to access all of a user's collections.
+* feat(score): Added new method to untrash a score (`POST /v2/scores/{score}/untrash`)
+* feat(score): `DELETE /v2/scores/{score}` can now be used without admin rights. This new behavior will unshare the score from the current account.
+* feat(score): `POST /scores/{score}/fork` now accepts a collection identifier to copy a score to a specific collection.
+* feat(comments): Comments can now be filtered by type with the new query string `type` (`document` or `inline`).
+* update(openapi): Some schema definitions have been renamed, they are now used for Scores and Collections
+  * `ScoreRights` -> `ResourceRights`
+  * `ScoreCollaborator` -> `ResourceCollaborator`
+  * `ScoreCollaboratorCreation` -> `ResourceCollaboratorCreation`
+  * existing _score sharing key_ -> `ResourceSharingKey`
+* **DEPRECATED**: `GET /scores/{score}/revisions/{revision}/{format}` no longer support part indexes for single/set of parts exports, but our own part UUIDs.
+* **DEPRECATED** on 2019-01-01: `GET /users/{user}/scores` will no longer list private and shared scores, but only public scores of a Flat account.
+
+### API v2.5.0 to v2.5.2
+
+* feat(scores): Add video & audio tracks support for scores: `/v2/scores/{score}/tracks`.
+* fix(user): Add missing escape in `pattern` (`UserCreation.username`).
+* fix(score): missing ScoreRights.aclRead type
+
+
 ## 0.7.0
 
 * feat(scores): New metadata and update of `PUT /v2/scores/{score}`:

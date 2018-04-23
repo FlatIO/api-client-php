@@ -29,13 +29,18 @@ Flat for Education is a Certified LTI Provider. You can use these API methods to
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $body = new \Flat\APIClient\Model\LtiCredentialsCreation(); // \Flat\APIClient\Model\LtiCredentialsCreation | 
 
 try {
-    $result = $api_instance->createLtiCredentials($body);
+    $result = $apiInstance->createLtiCredentials($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createLtiCredentials: ', $e->getMessage(), PHP_EOL;
@@ -77,13 +82,18 @@ This method creates and sends invitation for teachers and admins.  Invitations c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $body = new \Flat\APIClient\Model\OrganizationInvitationCreation(); // \Flat\APIClient\Model\OrganizationInvitationCreation | 
 
 try {
-    $result = $api_instance->createOrganizationInvitation($body);
+    $result = $apiInstance->createOrganizationInvitation($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createOrganizationInvitation: ', $e->getMessage(), PHP_EOL;
@@ -123,13 +133,18 @@ Create a new user account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $body = new \Flat\APIClient\Model\UserCreation(); // \Flat\APIClient\Model\UserCreation | 
 
 try {
-    $result = $api_instance->createOrganizationUser($body);
+    $result = $apiInstance->createOrganizationUser($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createOrganizationUser: ', $e->getMessage(), PHP_EOL;
@@ -169,12 +184,17 @@ List LTI 1.x credentials
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->listLtiCredentials();
+    $result = $apiInstance->listLtiCredentials();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->listLtiCredentials: ', $e->getMessage(), PHP_EOL;
@@ -211,16 +231,21 @@ List the organization invitations
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $role = "role_example"; // string | Filter users by role
 $limit = 50; // int | This is the maximum number of objects that may be returned
 $next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 $previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
-    $result = $api_instance->listOrganizationInvitations($role, $limit, $next, $previous);
+    $result = $apiInstance->listOrganizationInvitations($role, $limit, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->listOrganizationInvitations: ', $e->getMessage(), PHP_EOL;
@@ -263,16 +288,21 @@ List the organization users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $role = "role_example"; // string | Filter users by role
 $limit = 50; // int | This is the maximum number of objects that may be returned
 $next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 $previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
-    $result = $api_instance->listOrganizationUsers($role, $limit, $next, $previous);
+    $result = $apiInstance->listOrganizationUsers($role, $limit, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->listOrganizationUsers: ', $e->getMessage(), PHP_EOL;
@@ -315,13 +345,18 @@ Remove an organization invitation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $invitation = "invitation_example"; // string | Unique identifier of the invitation
 
 try {
-    $api_instance->removeOrganizationInvitation($invitation);
+    $apiInstance->removeOrganizationInvitation($invitation);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->removeOrganizationInvitation: ', $e->getMessage(), PHP_EOL;
 }
@@ -362,14 +397,19 @@ This operation removes an account from Flat and its data, including: * The music
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | Unique identifier of the Flat account
 $convertToIndividual = true; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.
 
 try {
-    $api_instance->removeOrganizationUser($user, $convertToIndividual);
+    $apiInstance->removeOrganizationUser($user, $convertToIndividual);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->removeOrganizationUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -409,13 +449,18 @@ Revoke LTI 1.x credentials
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $credentials = "credentials_example"; // string | Credentials unique identifier
 
 try {
-    $api_instance->revokeLtiCredentials($credentials);
+    $apiInstance->revokeLtiCredentials($credentials);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->revokeLtiCredentials: ', $e->getMessage(), PHP_EOL;
 }
@@ -454,14 +499,19 @@ Update account information
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\OrganizationApi();
+$apiInstance = new Flat\APIClient\Api\OrganizationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | Unique identifier of the Flat account
 $body = new \Flat\APIClient\Model\UserAdminUpdate(); // \Flat\APIClient\Model\UserAdminUpdate | 
 
 try {
-    $result = $api_instance->updateOrganizationUser($user, $body);
+    $result = $apiInstance->updateOrganizationUser($user, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->updateOrganizationUser: ', $e->getMessage(), PHP_EOL;

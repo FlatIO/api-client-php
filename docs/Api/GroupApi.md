@@ -20,13 +20,18 @@ Get group information
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\GroupApi();
+$apiInstance = new Flat\APIClient\Api\GroupApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $group = "group_example"; // string | Unique identifier of a Flat group
 
 try {
-    $result = $api_instance->getGroupDetails($group);
+    $result = $apiInstance->getGroupDetails($group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupApi->getGroupDetails: ', $e->getMessage(), PHP_EOL;
@@ -68,14 +73,19 @@ Get the list of scores shared with a group.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\GroupApi();
+$apiInstance = new Flat\APIClient\Api\GroupApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $group = "group_example"; // string | Unique identifier of a Flat group
 $parent = "parent_example"; // string | Filter the score forked from the score id `parent`
 
 try {
-    $result = $api_instance->getGroupScores($group, $parent);
+    $result = $apiInstance->getGroupScores($group, $parent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupApi->getGroupScores: ', $e->getMessage(), PHP_EOL;
@@ -116,13 +126,18 @@ List group's users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\GroupApi();
+$apiInstance = new Flat\APIClient\Api\GroupApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $group = "group_example"; // string | Unique identifier of a Flat group
 
 try {
-    $result = $api_instance->listGroupUsers($group);
+    $result = $apiInstance->listGroupUsers($group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupApi->listGroupUsers: ', $e->getMessage(), PHP_EOL;

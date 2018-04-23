@@ -20,14 +20,19 @@ List liked scores
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\UserApi();
+$apiInstance = new Flat\APIClient\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
 $ids = true; // bool | Return only the identifiers of the scores
 
 try {
-    $result = $api_instance->gerUserLikes($user, $ids);
+    $result = $apiInstance->gerUserLikes($user, $ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->gerUserLikes: ', $e->getMessage(), PHP_EOL;
@@ -70,13 +75,18 @@ Get a public profile of a Flat User.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\UserApi();
+$apiInstance = new Flat\APIClient\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.
 
 try {
-    $result = $api_instance->getUser($user);
+    $result = $apiInstance->getUser($user);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUser: ', $e->getMessage(), PHP_EOL;
@@ -110,7 +120,7 @@ Name | Type | Description  | Notes
 
 List user's scores
 
-Get the list of scores owned by the User
+Get the list of public scores owned by a User.  **DEPRECATED**: Please note that the current behavior will be deprecrated on **2019-01-01**. This method will no longer list private and shared scores, but only public scores of a Flat account. If you want to access to private scores, please use the [Collections API](#tag/Collection) instead.
 
 ### Example
 ```php
@@ -118,14 +128,19 @@ Get the list of scores owned by the User
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\UserApi();
+$apiInstance = new Flat\APIClient\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
 $parent = "parent_example"; // string | Filter the score forked from the score id `parent`
 
 try {
-    $result = $api_instance->getUserScores($user, $parent);
+    $result = $apiInstance->getUserScores($user, $parent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserScores: ', $e->getMessage(), PHP_EOL;

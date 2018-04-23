@@ -38,13 +38,18 @@ Mark the class as `active`. This is mainly used for classes synchronized from Cl
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 
 try {
-    $result = $api_instance->activateClass($class);
+    $result = $apiInstance->activateClass($class);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->activateClass: ', $e->getMessage(), PHP_EOL;
@@ -86,14 +91,19 @@ This method can be used by a teacher of the class to enroll another Flat user in
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $user = "user_example"; // string | Unique identifier of the user
 
 try {
-    $api_instance->addClassUser($class, $user);
+    $apiInstance->addClassUser($class, $user);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->addClassUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -135,13 +145,18 @@ Mark the class as `archived`. When this course is synchronized with another app,
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 
 try {
-    $result = $api_instance->archiveClass($class);
+    $result = $apiInstance->archiveClass($class);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->archiveClass: ', $e->getMessage(), PHP_EOL;
@@ -183,15 +198,20 @@ Copy an assignment to a specified class.  If the original assignment has a due d
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $assignment = "assignment_example"; // string | Unique identifier of the assignment
 $body = new \Flat\APIClient\Model\AssignmentCopy(); // \Flat\APIClient\Model\AssignmentCopy | 
 
 try {
-    $result = $api_instance->copyAssignment($class, $assignment, $body);
+    $result = $apiInstance->copyAssignment($class, $assignment, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->copyAssignment: ', $e->getMessage(), PHP_EOL;
@@ -235,14 +255,19 @@ Use this method as a teacher to create and post a new assignment to a class.  If
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $body = new \Flat\APIClient\Model\AssignmentCreation(); // \Flat\APIClient\Model\AssignmentCreation | 
 
 try {
-    $result = $api_instance->createAssignment($class, $body);
+    $result = $apiInstance->createAssignment($class, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createAssignment: ', $e->getMessage(), PHP_EOL;
@@ -285,13 +310,18 @@ Classrooms on Flat allow you to create activities with assignments and post cont
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $body = new \Flat\APIClient\Model\ClassCreation(); // \Flat\APIClient\Model\ClassCreation | 
 
 try {
-    $result = $api_instance->createClass($body);
+    $result = $apiInstance->createClass($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createClass: ', $e->getMessage(), PHP_EOL;
@@ -333,15 +363,20 @@ Use this method as a student to create, update and submit a submission related t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $assignment = "assignment_example"; // string | Unique identifier of the assignment
 $body = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
 
 try {
-    $result = $api_instance->createSubmission($class, $assignment, $body);
+    $result = $apiInstance->createSubmission($class, $assignment, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createSubmission: ', $e->getMessage(), PHP_EOL;
@@ -385,14 +420,19 @@ This method can be used by a teacher to remove a user from the class, or by a st
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $user = "user_example"; // string | Unique identifier of the user
 
 try {
-    $api_instance->deleteClassUser($class, $user);
+    $apiInstance->deleteClassUser($class, $user);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->deleteClassUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -434,16 +474,21 @@ Use this method as a teacher to update the different submission and give feedbac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $assignment = "assignment_example"; // string | Unique identifier of the assignment
 $submission = "submission_example"; // string | Unique identifier of the submission
 $body = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
 
 try {
-    $result = $api_instance->editSubmission($class, $assignment, $submission, $body);
+    $result = $apiInstance->editSubmission($class, $assignment, $submission, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->editSubmission: ', $e->getMessage(), PHP_EOL;
@@ -488,13 +533,18 @@ Use this method to join a class using an enrollment code given one of the teache
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enrollmentCode = "enrollmentCode_example"; // string | The enrollment code, available to the teacher in `ClassDetails`
 
 try {
-    $result = $api_instance->enrollClass($enrollmentCode);
+    $result = $apiInstance->enrollClass($enrollmentCode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->enrollClass: ', $e->getMessage(), PHP_EOL;
@@ -534,13 +584,18 @@ Get the details of a single class
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 
 try {
-    $result = $api_instance->getClass($class);
+    $result = $apiInstance->getClass($class);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->getClass: ', $e->getMessage(), PHP_EOL;
@@ -582,13 +637,18 @@ This API call will list the different assignments submissions where the score is
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
-    $result = $api_instance->getScoreSubmissions($score);
+    $result = $apiInstance->getScoreSubmissions($score);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->getScoreSubmissions: ', $e->getMessage(), PHP_EOL;
@@ -628,15 +688,20 @@ Get a student submission
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $assignment = "assignment_example"; // string | Unique identifier of the assignment
 $submission = "submission_example"; // string | Unique identifier of the submission
 
 try {
-    $result = $api_instance->getSubmission($class, $assignment, $submission);
+    $result = $apiInstance->getSubmission($class, $assignment, $submission);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->getSubmission: ', $e->getMessage(), PHP_EOL;
@@ -678,14 +743,19 @@ List the students' submissions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $assignment = "assignment_example"; // string | Unique identifier of the assignment
 
 try {
-    $result = $api_instance->getSubmissions($class, $assignment);
+    $result = $apiInstance->getSubmissions($class, $assignment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->getSubmissions: ', $e->getMessage(), PHP_EOL;
@@ -726,13 +796,18 @@ Assignments listing
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 
 try {
-    $result = $api_instance->listAssignments($class);
+    $result = $apiInstance->listAssignments($class);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->listAssignments: ', $e->getMessage(), PHP_EOL;
@@ -774,14 +849,19 @@ Use this method as a teacher to list all the assignment submissions sent by a st
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $user = "user_example"; // string | Unique identifier of the user
 
 try {
-    $result = $api_instance->listClassStudentSubmissions($class, $user);
+    $result = $apiInstance->listClassStudentSubmissions($class, $user);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->listClassStudentSubmissions: ', $e->getMessage(), PHP_EOL;
@@ -822,13 +902,18 @@ List the classes available for the current user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $state = "active"; // string | Filter the classes by state
 
 try {
-    $result = $api_instance->listClasses($state);
+    $result = $apiInstance->listClasses($state);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->listClasses: ', $e->getMessage(), PHP_EOL;
@@ -870,13 +955,18 @@ Mark the class as `active`. When this course is synchronized with another app, l
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 
 try {
-    $result = $api_instance->unarchiveClass($class);
+    $result = $apiInstance->unarchiveClass($class);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->unarchiveClass: ', $e->getMessage(), PHP_EOL;
@@ -918,14 +1008,19 @@ Update the meta information of the class
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\ClassApi();
+$apiInstance = new Flat\APIClient\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $class = "class_example"; // string | Unique identifier of the class
 $body = new \Flat\APIClient\Model\ClassUpdate(); // \Flat\APIClient\Model\ClassUpdate | Details of the Class
 
 try {
-    $result = $api_instance->updateClass($class, $body);
+    $result = $apiInstance->updateClass($class, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->updateClass: ', $e->getMessage(), PHP_EOL;

@@ -20,12 +20,17 @@ Get details about the current authenticated User.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Flat\APIClient\Api\AccountApi();
+$apiInstance = new Flat\APIClient\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->getAuthenticatedUser();
+    $result = $apiInstance->getAuthenticatedUser();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->getAuthenticatedUser: ', $e->getMessage(), PHP_EOL;
