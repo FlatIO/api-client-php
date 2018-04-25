@@ -1,6 +1,6 @@
 {
     "name": "flat/api",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "description": "PHP client for the Flat REST API",
     "keywords": [
         "Music",
@@ -28,7 +28,8 @@
     "require-dev": {
         "phpunit/phpunit": "~4.8",
         "squizlabs/php_codesniffer": "~2.8",
-        "friendsofphp/php-cs-fixer": "~2.2"
+        "friendsofphp/php-cs-fixer": "~2.2",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "autoload": {
         "psr-4": { "Flat\\APIClient\\" : "lib/" }
