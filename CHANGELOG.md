@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.2
+
+* Rebuild with Swagger 2.4.0-20180421.065846-237
+
 ## 0.8.1
 
 * Add guzzlehttp/guzzle to requirements

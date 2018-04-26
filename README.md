@@ -41,7 +41,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-require_once('/path/to/./autoload.php');
+require_once('/path/to/./vendor/autoload.php');
 ```
 
 ## Tests
@@ -61,13 +61,18 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token
-Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: OAuth2
+$config = Flat\APIClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api = new Flat\APIClient\Api\AccountApi();
+$apiInstance = new Flat\APIClient\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api->getAuthenticatedUser();
+    $result = $apiInstance->getAuthenticatedUser();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->getAuthenticatedUser: ', $e->getMessage(), PHP_EOL;
