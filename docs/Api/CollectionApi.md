@@ -36,9 +36,9 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->addScoreToCollection($collection, $score, $sharingKey);
@@ -67,13 +67,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCollection**
-> \Flat\APIClient\Model\Collection createCollection($body)
+> \Flat\APIClient\Model\Collection createCollection($collectionCreation)
 
 Create a new collection
 
@@ -93,10 +93,10 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\CollectionCreation(); // \Flat\APIClient\Model\CollectionCreation | 
+$collectionCreation = new \Flat\APIClient\Model\CollectionCreation(); // \Flat\APIClient\Model\CollectionCreation | 
 
 try {
-    $result = $apiInstance->createCollection($body);
+    $result = $apiInstance->createCollection($collectionCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionApi->createCollection: ', $e->getMessage(), PHP_EOL;
@@ -108,7 +108,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\CollectionCreation**](../Model/CollectionCreation.md)|  |
+ **collectionCreation** | [**\Flat\APIClient\Model\CollectionCreation**](../Model/CollectionCreation.md)|  |
 
 ### Return type
 
@@ -146,7 +146,7 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
 
 try {
     $apiInstance->deleteCollection($collection);
@@ -172,7 +172,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -198,8 +198,8 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
     $apiInstance->deleteScoreFromCollection($collection, $score);
@@ -226,13 +226,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editCollection**
-> \Flat\APIClient\Model\Collection editCollection($collection, $body)
+> \Flat\APIClient\Model\Collection editCollection($collection, $collectionModification)
 
 Update a collection's metadata
 
@@ -250,11 +250,11 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
-$body = new \Flat\APIClient\Model\CollectionModification(); // \Flat\APIClient\Model\CollectionModification | 
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$collectionModification = new \Flat\APIClient\Model\CollectionModification(); // \Flat\APIClient\Model\CollectionModification | 
 
 try {
-    $result = $apiInstance->editCollection($collection, $body);
+    $result = $apiInstance->editCollection($collection, $collectionModification);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionApi->editCollection: ', $e->getMessage(), PHP_EOL;
@@ -267,7 +267,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection** | **string**| Unique identifier of the collection. The following aliases are supported: - &#x60;root&#x60;: The root collection of the account - &#x60;sharedWithMe&#x60;: Automatically contains new resources that have been shared individually - &#x60;trash&#x60;: Automatically contains resources that have been deleted |
- **body** | [**\Flat\APIClient\Model\CollectionModification**](../Model/CollectionModification.md)|  | [optional]
+ **collectionModification** | [**\Flat\APIClient\Model\CollectionModification**](../Model/CollectionModification.md)|  | [optional]
 
 ### Return type
 
@@ -303,8 +303,8 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getCollection($collection, $sharingKey);
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -358,13 +358,13 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
-$sort = "sort_example"; // string | Sort
-$direction = "direction_example"; // string | Sort direction
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$sort = 'sort_example'; // string | Sort
+$direction = 'direction_example'; // string | Sort direction
 $limit = 25; // int | This is the maximum number of objects that may be returned
-$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
-$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$next = 'next_example'; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = 'previous_example'; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
     $result = $apiInstance->listCollectionScores($collection, $sharingKey, $sort, $direction, $limit, $next, $previous);
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -423,12 +423,12 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$parent = "root"; // string | List the collection contained in this `parent` collection.  This option doesn't provide a complete multi-level collection support. When sharing a collection with someone, this one will have as `parent` `sharedWithMe`.
-$sort = "sort_example"; // string | Sort
-$direction = "direction_example"; // string | Sort direction
+$parent = 'root'; // string | List the collection contained in this `parent` collection.  This option doesn't provide a complete multi-level collection support. When sharing a collection with someone, this one will have as `parent` `sharedWithMe`.
+$sort = 'sort_example'; // string | Sort
+$direction = 'direction_example'; // string | Sort direction
 $limit = 25; // int | This is the maximum number of objects that may be returned
-$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
-$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$next = 'next_example'; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = 'previous_example'; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
     $result = $apiInstance->listCollections($parent, $sort, $direction, $limit, $next, $previous);
@@ -443,7 +443,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent** | **string**| List the collection contained in this &#x60;parent&#x60; collection.  This option doesn&#39;t provide a complete multi-level collection support. When sharing a collection with someone, this one will have as &#x60;parent&#x60; &#x60;sharedWithMe&#x60;. | [optional] [default to root]
+ **parent** | **string**| List the collection contained in this &#x60;parent&#x60; collection.  This option doesn&#39;t provide a complete multi-level collection support. When sharing a collection with someone, this one will have as &#x60;parent&#x60; &#x60;sharedWithMe&#x60;. | [optional] [default to &#39;root&#39;]
  **sort** | **string**| Sort | [optional]
  **direction** | **string**| Sort direction | [optional]
  **limit** | **int**| This is the maximum number of objects that may be returned | [optional] [default to 25]
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -486,7 +486,7 @@ $apiInstance = new Flat\APIClient\Api\CollectionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collection = "collection_example"; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
+$collection = 'collection_example'; // string | Unique identifier of the collection. The following aliases are supported: - `root`: The root collection of the account - `sharedWithMe`: Automatically contains new resources that have been shared individually - `trash`: Automatically contains resources that have been deleted
 
 try {
     $apiInstance->untrashCollection($collection);
@@ -512,7 +512,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

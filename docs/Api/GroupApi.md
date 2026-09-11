@@ -28,7 +28,7 @@ $apiInstance = new Flat\APIClient\Api\GroupApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group = "group_example"; // string | Unique identifier of a Flat group
+$group = 'group_example'; // string | Unique identifier of a Flat group
 
 try {
     $result = $apiInstance->getGroupDetails($group);
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -81,8 +81,8 @@ $apiInstance = new Flat\APIClient\Api\GroupApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group = "group_example"; // string | Unique identifier of a Flat group
-$parent = "parent_example"; // string | Filter the score forked from the score id `parent`
+$group = 'group_example'; // string | Unique identifier of a Flat group
+$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
 
 try {
     $result = $apiInstance->getGroupScores($group, $parent);
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -134,7 +134,7 @@ $apiInstance = new Flat\APIClient\Api\GroupApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group = "group_example"; // string | Unique identifier of a Flat group
+$group = 'group_example'; // string | Unique identifier of a Flat group
 
 try {
     $result = $apiInstance->listGroupUsers($group);
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

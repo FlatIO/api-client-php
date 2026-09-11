@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.0](https://github.com/FlatIO/api-client-php/compare/v0.8.2...v1.0.0) (2026-09-11)
+
+The first stable release of the 1.x line. Regenerated against API specification 2.26.1, covering
+all 123 public operations. See [MIGRATION.md](MIGRATION.md) for the upgrade from 0.x.
+
+### Features
+
+* Typed errors: an API failure throws `FlatNotFoundError`, `FlatAuthenticationError` and the rest
+  of the `FlatError` hierarchy, rather than the generated `ApiException`.
+* Retries with backoff, as Guzzle middleware so every request passes through it. Flat returns HTTP
+  403 for rate limiting with the reset in `X-RateLimit-Reset`, so the decision reads the response
+  body's `code` to tell a throttle from a genuine authorization failure.
+* Pagination that follows the `Link` header cursor, which the specification does not declare.
+* OAuth2 with token refresh on expiry.
+* `FlatClient` as a single entry point over the ten generated APIs.
+
+### Breaking Changes
+
+* Requires PHP 8.2 or later.
+* Generated with php-nextgen rather than swagger-codegen, so names and namespaces have changed.
+
 ## 0.8.2
 
 * Rebuild with Swagger 2.4.0-20180421.065846-237

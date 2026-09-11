@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **createLtiCredentials**
-> \Flat\APIClient\Model\LtiCredentials createLtiCredentials($body)
+> \Flat\APIClient\Model\LtiCredentials createLtiCredentials($ltiCredentialsCreation)
 
 Create a new couple of LTI 1.x credentials
 
@@ -37,10 +37,10 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\LtiCredentialsCreation(); // \Flat\APIClient\Model\LtiCredentialsCreation | 
+$ltiCredentialsCreation = new \Flat\APIClient\Model\LtiCredentialsCreation(); // \Flat\APIClient\Model\LtiCredentialsCreation | 
 
 try {
-    $result = $apiInstance->createLtiCredentials($body);
+    $result = $apiInstance->createLtiCredentials($ltiCredentialsCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createLtiCredentials: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\LtiCredentialsCreation**](../Model/LtiCredentialsCreation.md)|  |
+ **ltiCredentialsCreation** | [**\Flat\APIClient\Model\LtiCredentialsCreation**](../Model/LtiCredentialsCreation.md)|  |
 
 ### Return type
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOrganizationInvitation**
-> \Flat\APIClient\Model\OrganizationInvitation createOrganizationInvitation($body)
+> \Flat\APIClient\Model\OrganizationInvitation createOrganizationInvitation($organizationInvitationCreation)
 
 Create a new invitation to join the organization
 
@@ -90,10 +90,10 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\OrganizationInvitationCreation(); // \Flat\APIClient\Model\OrganizationInvitationCreation | 
+$organizationInvitationCreation = new \Flat\APIClient\Model\OrganizationInvitationCreation(); // \Flat\APIClient\Model\OrganizationInvitationCreation | 
 
 try {
-    $result = $apiInstance->createOrganizationInvitation($body);
+    $result = $apiInstance->createOrganizationInvitation($organizationInvitationCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createOrganizationInvitation: ', $e->getMessage(), PHP_EOL;
@@ -105,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\OrganizationInvitationCreation**](../Model/OrganizationInvitationCreation.md)|  | [optional]
+ **organizationInvitationCreation** | [**\Flat\APIClient\Model\OrganizationInvitationCreation**](../Model/OrganizationInvitationCreation.md)|  | [optional]
 
 ### Return type
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOrganizationUser**
-> \Flat\APIClient\Model\UserDetailsAdmin createOrganizationUser($body)
+> \Flat\APIClient\Model\UserDetailsAdmin createOrganizationUser($userCreation)
 
 Create a new user account
 
@@ -141,10 +141,10 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\UserCreation(); // \Flat\APIClient\Model\UserCreation | 
+$userCreation = new \Flat\APIClient\Model\UserCreation(); // \Flat\APIClient\Model\UserCreation | 
 
 try {
-    $result = $apiInstance->createOrganizationUser($body);
+    $result = $apiInstance->createOrganizationUser($userCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->createOrganizationUser: ', $e->getMessage(), PHP_EOL;
@@ -156,7 +156,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\UserCreation**](../Model/UserCreation.md)|  | [optional]
+ **userCreation** | [**\Flat\APIClient\Model\UserCreation**](../Model/UserCreation.md)|  | [optional]
 
 ### Return type
 
@@ -215,7 +215,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -239,10 +239,10 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$role = "role_example"; // string | Filter users by role
+$role = 'role_example'; // string | Filter users by role
 $limit = 50; // int | This is the maximum number of objects that may be returned
-$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
-$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$next = 'next_example'; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = 'previous_example'; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
     $result = $apiInstance->listOrganizationInvitations($role, $limit, $next, $previous);
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -296,10 +296,10 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$role = "role_example"; // string | Filter users by role
+$role = 'role_example'; // string | Filter users by role
 $limit = 50; // int | This is the maximum number of objects that may be returned
-$next = "next_example"; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
-$previous = "previous_example"; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$next = 'next_example'; // string | An opaque string cursor to fetch the next page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
+$previous = 'previous_example'; // string | An opaque string cursor to fetch the previous page of data. The paginated API URLs are returned in the `Link` header when requesting the API. These URLs will contain a `next` and `previous` cursor based on the available data.
 
 try {
     $result = $apiInstance->listOrganizationUsers($role, $limit, $next, $previous);
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -353,7 +353,7 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invitation = "invitation_example"; // string | Unique identifier of the invitation
+$invitation = 'invitation_example'; // string | Unique identifier of the invitation
 
 try {
     $apiInstance->removeOrganizationInvitation($invitation);
@@ -379,7 +379,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -405,8 +405,8 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of the Flat account
-$convertToIndividual = true; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.
+$user = 'user_example'; // string | Unique identifier of the Flat account
+$convertToIndividual = True; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.
 
 try {
     $apiInstance->removeOrganizationUser($user, $convertToIndividual);
@@ -433,7 +433,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -457,7 +457,7 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$credentials = "credentials_example"; // string | Credentials unique identifier
+$credentials = 'credentials_example'; // string | Credentials unique identifier
 
 try {
     $apiInstance->revokeLtiCredentials($credentials);
@@ -483,13 +483,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrganizationUser**
-> \Flat\APIClient\Model\UserDetailsAdmin updateOrganizationUser($user, $body)
+> \Flat\APIClient\Model\UserDetailsAdmin updateOrganizationUser($user, $userAdminUpdate)
 
 Update account information
 
@@ -507,11 +507,11 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of the Flat account
-$body = new \Flat\APIClient\Model\UserAdminUpdate(); // \Flat\APIClient\Model\UserAdminUpdate | 
+$user = 'user_example'; // string | Unique identifier of the Flat account
+$userAdminUpdate = new \Flat\APIClient\Model\UserAdminUpdate(); // \Flat\APIClient\Model\UserAdminUpdate | 
 
 try {
-    $result = $apiInstance->updateOrganizationUser($user, $body);
+    $result = $apiInstance->updateOrganizationUser($user, $userAdminUpdate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationApi->updateOrganizationUser: ', $e->getMessage(), PHP_EOL;
@@ -524,7 +524,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user** | **string**| Unique identifier of the Flat account |
- **body** | [**\Flat\APIClient\Model\UserAdminUpdate**](../Model/UserAdminUpdate.md)|  |
+ **userAdminUpdate** | [**\Flat\APIClient\Model\UserAdminUpdate**](../Model/UserAdminUpdate.md)|  |
 
 ### Return type
 

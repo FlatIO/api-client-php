@@ -46,7 +46,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
+$class = 'class_example'; // string | Unique identifier of the class
 
 try {
     $result = $apiInstance->activateClass($class);
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -99,8 +99,8 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$user = "user_example"; // string | Unique identifier of the user
+$class = 'class_example'; // string | Unique identifier of the class
+$user = 'user_example'; // string | Unique identifier of the user
 
 try {
     $apiInstance->addClassUser($class, $user);
@@ -127,7 +127,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -153,7 +153,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
+$class = 'class_example'; // string | Unique identifier of the class
 
 try {
     $result = $apiInstance->archiveClass($class);
@@ -180,13 +180,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **copyAssignment**
-> \Flat\APIClient\Model\Assignment copyAssignment($class, $assignment, $body)
+> \Flat\APIClient\Model\Assignment copyAssignment($class, $assignment, $assignmentCopy)
 
 Copy an assignment
 
@@ -206,12 +206,12 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$assignment = "assignment_example"; // string | Unique identifier of the assignment
-$body = new \Flat\APIClient\Model\AssignmentCopy(); // \Flat\APIClient\Model\AssignmentCopy | 
+$class = 'class_example'; // string | Unique identifier of the class
+$assignment = 'assignment_example'; // string | Unique identifier of the assignment
+$assignmentCopy = new \Flat\APIClient\Model\AssignmentCopy(); // \Flat\APIClient\Model\AssignmentCopy | 
 
 try {
-    $result = $apiInstance->copyAssignment($class, $assignment, $body);
+    $result = $apiInstance->copyAssignment($class, $assignment, $assignmentCopy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->copyAssignment: ', $e->getMessage(), PHP_EOL;
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **class** | **string**| Unique identifier of the class |
  **assignment** | **string**| Unique identifier of the assignment |
- **body** | [**\Flat\APIClient\Model\AssignmentCopy**](../Model/AssignmentCopy.md)|  |
+ **assignmentCopy** | [**\Flat\APIClient\Model\AssignmentCopy**](../Model/AssignmentCopy.md)|  |
 
 ### Return type
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAssignment**
-> \Flat\APIClient\Model\Assignment createAssignment($class, $body)
+> \Flat\APIClient\Model\Assignment createAssignment($class, $assignmentCreation)
 
 Assignment creation
 
@@ -263,11 +263,11 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$body = new \Flat\APIClient\Model\AssignmentCreation(); // \Flat\APIClient\Model\AssignmentCreation | 
+$class = 'class_example'; // string | Unique identifier of the class
+$assignmentCreation = new \Flat\APIClient\Model\AssignmentCreation(); // \Flat\APIClient\Model\AssignmentCreation | 
 
 try {
-    $result = $apiInstance->createAssignment($class, $body);
+    $result = $apiInstance->createAssignment($class, $assignmentCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createAssignment: ', $e->getMessage(), PHP_EOL;
@@ -280,7 +280,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **class** | **string**| Unique identifier of the class |
- **body** | [**\Flat\APIClient\Model\AssignmentCreation**](../Model/AssignmentCreation.md)|  | [optional]
+ **assignmentCreation** | [**\Flat\APIClient\Model\AssignmentCreation**](../Model/AssignmentCreation.md)|  | [optional]
 
 ### Return type
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createClass**
-> \Flat\APIClient\Model\ClassDetails createClass($body)
+> \Flat\APIClient\Model\ClassDetails createClass($classCreation)
 
 Create a new class
 
@@ -318,10 +318,10 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\ClassCreation(); // \Flat\APIClient\Model\ClassCreation | 
+$classCreation = new \Flat\APIClient\Model\ClassCreation(); // \Flat\APIClient\Model\ClassCreation | 
 
 try {
-    $result = $apiInstance->createClass($body);
+    $result = $apiInstance->createClass($classCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createClass: ', $e->getMessage(), PHP_EOL;
@@ -333,7 +333,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\ClassCreation**](../Model/ClassCreation.md)|  |
+ **classCreation** | [**\Flat\APIClient\Model\ClassCreation**](../Model/ClassCreation.md)|  |
 
 ### Return type
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSubmission**
-> \Flat\APIClient\Model\AssignmentSubmission createSubmission($class, $assignment, $body)
+> \Flat\APIClient\Model\AssignmentSubmission createSubmission($class, $assignment, $assignmentSubmissionUpdate)
 
 Create or edit a submission
 
@@ -371,12 +371,12 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$assignment = "assignment_example"; // string | Unique identifier of the assignment
-$body = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
+$class = 'class_example'; // string | Unique identifier of the class
+$assignment = 'assignment_example'; // string | Unique identifier of the assignment
+$assignmentSubmissionUpdate = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
 
 try {
-    $result = $apiInstance->createSubmission($class, $assignment, $body);
+    $result = $apiInstance->createSubmission($class, $assignment, $assignmentSubmissionUpdate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->createSubmission: ', $e->getMessage(), PHP_EOL;
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **class** | **string**| Unique identifier of the class |
  **assignment** | **string**| Unique identifier of the assignment |
- **body** | [**\Flat\APIClient\Model\AssignmentSubmissionUpdate**](../Model/AssignmentSubmissionUpdate.md)|  |
+ **assignmentSubmissionUpdate** | [**\Flat\APIClient\Model\AssignmentSubmissionUpdate**](../Model/AssignmentSubmissionUpdate.md)|  |
 
 ### Return type
 
@@ -428,8 +428,8 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$user = "user_example"; // string | Unique identifier of the user
+$class = 'class_example'; // string | Unique identifier of the class
+$user = 'user_example'; // string | Unique identifier of the user
 
 try {
     $apiInstance->deleteClassUser($class, $user);
@@ -456,13 +456,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editSubmission**
-> \Flat\APIClient\Model\AssignmentSubmission editSubmission($class, $assignment, $submission, $body)
+> \Flat\APIClient\Model\AssignmentSubmission editSubmission($class, $assignment, $submission, $assignmentSubmissionUpdate)
 
 Edit a submission
 
@@ -482,13 +482,13 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$assignment = "assignment_example"; // string | Unique identifier of the assignment
-$submission = "submission_example"; // string | Unique identifier of the submission
-$body = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
+$class = 'class_example'; // string | Unique identifier of the class
+$assignment = 'assignment_example'; // string | Unique identifier of the assignment
+$submission = 'submission_example'; // string | Unique identifier of the submission
+$assignmentSubmissionUpdate = new \Flat\APIClient\Model\AssignmentSubmissionUpdate(); // \Flat\APIClient\Model\AssignmentSubmissionUpdate | 
 
 try {
-    $result = $apiInstance->editSubmission($class, $assignment, $submission, $body);
+    $result = $apiInstance->editSubmission($class, $assignment, $submission, $assignmentSubmissionUpdate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->editSubmission: ', $e->getMessage(), PHP_EOL;
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
  **class** | **string**| Unique identifier of the class |
  **assignment** | **string**| Unique identifier of the assignment |
  **submission** | **string**| Unique identifier of the submission |
- **body** | [**\Flat\APIClient\Model\AssignmentSubmissionUpdate**](../Model/AssignmentSubmissionUpdate.md)|  |
+ **assignmentSubmissionUpdate** | [**\Flat\APIClient\Model\AssignmentSubmissionUpdate**](../Model/AssignmentSubmissionUpdate.md)|  |
 
 ### Return type
 
@@ -541,7 +541,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$enrollmentCode = "enrollmentCode_example"; // string | The enrollment code, available to the teacher in `ClassDetails`
+$enrollmentCode = 'enrollmentCode_example'; // string | The enrollment code, available to the teacher in `ClassDetails`
 
 try {
     $result = $apiInstance->enrollClass($enrollmentCode);
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -592,7 +592,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
+$class = 'class_example'; // string | Unique identifier of the class
 
 try {
     $result = $apiInstance->getClass($class);
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -645,7 +645,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
     $result = $apiInstance->getScoreSubmissions($score);
@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -696,9 +696,9 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$assignment = "assignment_example"; // string | Unique identifier of the assignment
-$submission = "submission_example"; // string | Unique identifier of the submission
+$class = 'class_example'; // string | Unique identifier of the class
+$assignment = 'assignment_example'; // string | Unique identifier of the assignment
+$submission = 'submission_example'; // string | Unique identifier of the submission
 
 try {
     $result = $apiInstance->getSubmission($class, $assignment, $submission);
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -751,8 +751,8 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$assignment = "assignment_example"; // string | Unique identifier of the assignment
+$class = 'class_example'; // string | Unique identifier of the class
+$assignment = 'assignment_example'; // string | Unique identifier of the assignment
 
 try {
     $result = $apiInstance->getSubmissions($class, $assignment);
@@ -780,7 +780,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -804,7 +804,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
+$class = 'class_example'; // string | Unique identifier of the class
 
 try {
     $result = $apiInstance->listAssignments($class);
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -857,8 +857,8 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$user = "user_example"; // string | Unique identifier of the user
+$class = 'class_example'; // string | Unique identifier of the class
+$user = 'user_example'; // string | Unique identifier of the user
 
 try {
     $result = $apiInstance->listClassStudentSubmissions($class, $user);
@@ -886,7 +886,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -910,7 +910,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$state = "active"; // string | Filter the classes by state
+$state = 'active'; // string | Filter the classes by state
 
 try {
     $result = $apiInstance->listClasses($state);
@@ -925,7 +925,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **state** | **string**| Filter the classes by state | [optional] [default to active]
+ **state** | **string**| Filter the classes by state | [optional] [default to &#39;active&#39;]
 
 ### Return type
 
@@ -937,7 +937,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -963,7 +963,7 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
+$class = 'class_example'; // string | Unique identifier of the class
 
 try {
     $result = $apiInstance->unarchiveClass($class);
@@ -990,13 +990,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateClass**
-> \Flat\APIClient\Model\ClassDetails updateClass($class, $body)
+> \Flat\APIClient\Model\ClassDetails updateClass($class, $classUpdate)
 
 Update the class
 
@@ -1016,11 +1016,11 @@ $apiInstance = new Flat\APIClient\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$class = "class_example"; // string | Unique identifier of the class
-$body = new \Flat\APIClient\Model\ClassUpdate(); // \Flat\APIClient\Model\ClassUpdate | Details of the Class
+$class = 'class_example'; // string | Unique identifier of the class
+$classUpdate = new \Flat\APIClient\Model\ClassUpdate(); // \Flat\APIClient\Model\ClassUpdate | Details of the Class
 
 try {
-    $result = $apiInstance->updateClass($class, $body);
+    $result = $apiInstance->updateClass($class, $classUpdate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->updateClass: ', $e->getMessage(), PHP_EOL;
@@ -1033,7 +1033,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **class** | **string**| Unique identifier of the class |
- **body** | [**\Flat\APIClient\Model\ClassUpdate**](../Model/ClassUpdate.md)| Details of the Class | [optional]
+ **classUpdate** | [**\Flat\APIClient\Model\ClassUpdate**](../Model/ClassUpdate.md)| Details of the Class | [optional]
 
 ### Return type
 

@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 
 # **addScoreCollaborator**
-> \Flat\APIClient\Model\ResourceCollaborator addScoreCollaborator($score, $body)
+> \Flat\APIClient\Model\ResourceCollaborator addScoreCollaborator($score, $resourceCollaboratorCreation)
 
 Add a new collaborator
 
@@ -56,11 +56,11 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ResourceCollaboratorCreation(); // \Flat\APIClient\Model\ResourceCollaboratorCreation | 
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$resourceCollaboratorCreation = new \Flat\APIClient\Model\ResourceCollaboratorCreation(); // \Flat\APIClient\Model\ResourceCollaboratorCreation | 
 
 try {
-    $result = $apiInstance->addScoreCollaborator($score, $body);
+    $result = $apiInstance->addScoreCollaborator($score, $resourceCollaboratorCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->addScoreCollaborator: ', $e->getMessage(), PHP_EOL;
@@ -73,7 +73,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ResourceCollaboratorCreation**](../Model/ResourceCollaboratorCreation.md)|  |
+ **resourceCollaboratorCreation** | [**\Flat\APIClient\Model\ResourceCollaboratorCreation**](../Model/ResourceCollaboratorCreation.md)|  |
 
 ### Return type
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addScoreTrack**
-> \Flat\APIClient\Model\ScoreTrack addScoreTrack($score, $body)
+> \Flat\APIClient\Model\ScoreTrack addScoreTrack($score, $scoreTrackCreation)
 
 Add a new video or audio track to the score
 
@@ -111,11 +111,11 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ScoreTrackCreation(); // \Flat\APIClient\Model\ScoreTrackCreation | 
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$scoreTrackCreation = new \Flat\APIClient\Model\ScoreTrackCreation(); // \Flat\APIClient\Model\ScoreTrackCreation | 
 
 try {
-    $result = $apiInstance->addScoreTrack($score, $body);
+    $result = $apiInstance->addScoreTrack($score, $scoreTrackCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->addScoreTrack: ', $e->getMessage(), PHP_EOL;
@@ -128,7 +128,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreTrackCreation**](../Model/ScoreTrackCreation.md)|  |
+ **scoreTrackCreation** | [**\Flat\APIClient\Model\ScoreTrackCreation**](../Model/ScoreTrackCreation.md)|  |
 
 ### Return type
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createScore**
-> \Flat\APIClient\Model\ScoreDetails createScore($body)
+> \Flat\APIClient\Model\ScoreDetails createScore($scoreCreation)
 
 Create a new score
 
@@ -166,10 +166,10 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Flat\APIClient\Model\ScoreCreation(); // \Flat\APIClient\Model\ScoreCreation | 
+$scoreCreation = new \Flat\APIClient\Model\ScoreCreation(); // \Flat\APIClient\Model\ScoreCreation | 
 
 try {
-    $result = $apiInstance->createScore($body);
+    $result = $apiInstance->createScore($scoreCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->createScore: ', $e->getMessage(), PHP_EOL;
@@ -181,7 +181,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Flat\APIClient\Model\ScoreCreation**](../Model/ScoreCreation.md)|  |
+ **scoreCreation** | [**\Flat\APIClient\Model\ScoreCreation**](../Model/ScoreCreation.md)|  |
 
 ### Return type
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createScoreRevision**
-> \Flat\APIClient\Model\ScoreRevision createScoreRevision($score, $body)
+> \Flat\APIClient\Model\ScoreRevision createScoreRevision($score, $scoreRevisionCreation)
 
 Create a new revision
 
@@ -219,11 +219,11 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ScoreRevisionCreation(); // \Flat\APIClient\Model\ScoreRevisionCreation | 
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$scoreRevisionCreation = new \Flat\APIClient\Model\ScoreRevisionCreation(); // \Flat\APIClient\Model\ScoreRevisionCreation | 
 
 try {
-    $result = $apiInstance->createScoreRevision($score, $body);
+    $result = $apiInstance->createScoreRevision($score, $scoreRevisionCreation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->createScoreRevision: ', $e->getMessage(), PHP_EOL;
@@ -236,7 +236,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreRevisionCreation**](../Model/ScoreRevisionCreation.md)|  |
+ **scoreRevisionCreation** | [**\Flat\APIClient\Model\ScoreRevisionCreation**](../Model/ScoreRevisionCreation.md)|  |
 
 ### Return type
 
@@ -274,7 +274,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
     $apiInstance->deleteScore($score);
@@ -300,7 +300,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -324,9 +324,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$comment = "comment_example"; // string | Unique identifier of a sheet music comment
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$comment = 'comment_example'; // string | Unique identifier of a sheet music comment
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $apiInstance->deleteScoreComment($score, $comment, $sharingKey);
@@ -354,7 +354,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -378,8 +378,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$track = "track_example"; // string | Unique identifier of a score audio track
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$track = 'track_example'; // string | Unique identifier of a score audio track
 
 try {
     $apiInstance->deleteScoreTrack($score, $track);
@@ -406,13 +406,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editScore**
-> \Flat\APIClient\Model\ScoreDetails editScore($score, $body)
+> \Flat\APIClient\Model\ScoreDetails editScore($score, $scoreModification)
 
 Edit a score's metadata
 
@@ -432,11 +432,11 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ScoreModification(); // \Flat\APIClient\Model\ScoreModification | 
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$scoreModification = new \Flat\APIClient\Model\ScoreModification(); // \Flat\APIClient\Model\ScoreModification | 
 
 try {
-    $result = $apiInstance->editScore($score, $body);
+    $result = $apiInstance->editScore($score, $scoreModification);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->editScore: ', $e->getMessage(), PHP_EOL;
@@ -449,7 +449,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreModification**](../Model/ScoreModification.md)|  | [optional]
+ **scoreModification** | [**\Flat\APIClient\Model\ScoreModification**](../Model/ScoreModification.md)|  | [optional]
 
 ### Return type
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **forkScore**
-> \Flat\APIClient\Model\ScoreDetails forkScore($score, $body, $sharingKey)
+> \Flat\APIClient\Model\ScoreDetails forkScore($score, $scoreFork, $sharingKey)
 
 Fork a score
 
@@ -487,12 +487,12 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ScoreFork(); // \Flat\APIClient\Model\ScoreFork | 
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$scoreFork = new \Flat\APIClient\Model\ScoreFork(); // \Flat\APIClient\Model\ScoreFork | 
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $apiInstance->forkScore($score, $body, $sharingKey);
+    $result = $apiInstance->forkScore($score, $scoreFork, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->forkScore: ', $e->getMessage(), PHP_EOL;
@@ -505,7 +505,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreFork**](../Model/ScoreFork.md)|  |
+ **scoreFork** | [**\Flat\APIClient\Model\ScoreFork**](../Model/ScoreFork.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
@@ -542,8 +542,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
-$ids = true; // bool | Return only the identifiers of the scores
+$user = 'user_example'; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
+$ids = True; // bool | Return only the identifiers of the scores
 
 try {
     $result = $apiInstance->gerUserLikes($user, $ids);
@@ -571,7 +571,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -597,8 +597,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group = "group_example"; // string | Unique identifier of a Flat group
-$parent = "parent_example"; // string | Filter the score forked from the score id `parent`
+$group = 'group_example'; // string | Unique identifier of a Flat group
+$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
 
 try {
     $result = $apiInstance->getGroupScores($group, $parent);
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -652,8 +652,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScore($score, $sharingKey);
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -707,9 +707,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$collaborator = "collaborator_example"; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$collaborator = 'collaborator_example'; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScoreCollaborator($score, $collaborator, $sharingKey);
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -764,8 +764,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScoreCollaborators($score, $sharingKey);
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -819,11 +819,11 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
-$type = "type_example"; // string | Filter the comments by type
-$sort = "sort_example"; // string | Sort
-$direction = "direction_example"; // string | Sort direction
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$type = 'type_example'; // string | Filter the comments by type
+$sort = 'sort_example'; // string | Sort
+$direction = 'direction_example'; // string | Sort direction
 
 try {
     $result = $apiInstance->getScoreComments($score, $sharingKey, $type, $sort, $direction);
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -880,9 +880,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$revision = "revision_example"; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$revision = 'revision_example'; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScoreRevision($score, $revision, $sharingKey);
@@ -911,13 +911,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScoreRevisionData**
-> string getScoreRevisionData($score, $revision, $format, $sharingKey, $parts, $onlyCached)
+> \SplFileObject getScoreRevisionData($score, $revision, $format, $sharingKey, $parts, $onlyCached)
 
 Get a score revision data
 
@@ -937,12 +937,12 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$revision = "revision_example"; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
-$format = "format_example"; // string | The format of the file you will retrieve
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
-$parts = "parts_example"; // string | An optional a set of parts to be exported. This parameter must be specified with a list of integers. For example \"1,2,5\".
-$onlyCached = true; // bool | Only return files already generated and cached in Flat's production cache. If the file is not availabe, a 404 will be returned
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$revision = 'revision_example'; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
+$format = 'format_example'; // string | The format of the file you will retrieve
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$parts = 'parts_example'; // string | An optional a set of parts to be exported. This parameter must be specified with a list of integers. For example \"1,2,5\".
+$onlyCached = True; // bool | Only return files already generated and cached in Flat's production cache. If the file is not availabe, a 404 will be returned
 
 try {
     $result = $apiInstance->getScoreRevisionData($score, $revision, $format, $sharingKey, $parts, $onlyCached);
@@ -966,7 +966,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**\SplFileObject**](../Model/\SplFileObject.md)
 
 ### Authorization
 
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/vnd.recordare.musicxml+xml, application/vnd.recordare.musicxml, audio/mp3, audio/wav, audio/midi, image/png
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1000,8 +1000,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScoreRevisions($score, $sharingKey);
@@ -1029,7 +1029,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1055,7 +1055,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
     $result = $apiInstance->getScoreSubmissions($score);
@@ -1082,7 +1082,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1106,9 +1106,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$track = "track_example"; // string | Unique identifier of a score audio track
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$track = 'track_example'; // string | Unique identifier of a score audio track
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->getScoreTrack($score, $track, $sharingKey);
@@ -1137,7 +1137,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1163,8 +1163,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
-$parent = "parent_example"; // string | Filter the score forked from the score id `parent`
+$user = 'user_example'; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
+$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
 
 try {
     $result = $apiInstance->getUserScores($user, $parent);
@@ -1192,7 +1192,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1216,8 +1216,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $result = $apiInstance->listScoreTracks($score, $sharingKey);
@@ -1245,7 +1245,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1269,9 +1269,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$comment = "comment_example"; // string | Unique identifier of a sheet music comment
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$comment = 'comment_example'; // string | Unique identifier of a sheet music comment
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $apiInstance->markScoreCommentResolved($score, $comment, $sharingKey);
@@ -1299,7 +1299,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1323,9 +1323,9 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$comment = "comment_example"; // string | Unique identifier of a sheet music comment
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$comment = 'comment_example'; // string | Unique identifier of a sheet music comment
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
     $apiInstance->markScoreCommentUnresolved($score, $comment, $sharingKey);
@@ -1353,13 +1353,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postScoreComment**
-> \Flat\APIClient\Model\ScoreComment postScoreComment($score, $body, $sharingKey)
+> \Flat\APIClient\Model\ScoreComment postScoreComment($score, $scoreCommentCreation, $sharingKey)
 
 Post a new comment
 
@@ -1379,12 +1379,12 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$body = new \Flat\APIClient\Model\ScoreCommentCreation(); // \Flat\APIClient\Model\ScoreCommentCreation | 
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$scoreCommentCreation = new \Flat\APIClient\Model\ScoreCommentCreation(); // \Flat\APIClient\Model\ScoreCommentCreation | 
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $apiInstance->postScoreComment($score, $body, $sharingKey);
+    $result = $apiInstance->postScoreComment($score, $scoreCommentCreation, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->postScoreComment: ', $e->getMessage(), PHP_EOL;
@@ -1397,7 +1397,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
- **body** | [**\Flat\APIClient\Model\ScoreCommentCreation**](../Model/ScoreCommentCreation.md)|  |
+ **scoreCommentCreation** | [**\Flat\APIClient\Model\ScoreCommentCreation**](../Model/ScoreCommentCreation.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
@@ -1436,8 +1436,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$collaborator = "collaborator_example"; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$collaborator = 'collaborator_example'; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
 
 try {
     $apiInstance->removeScoreCollaborator($score, $collaborator);
@@ -1464,7 +1464,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1486,7 +1486,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 
 try {
     $apiInstance->untrashScore($score);
@@ -1512,13 +1512,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateScoreComment**
-> \Flat\APIClient\Model\ScoreComment updateScoreComment($score, $comment, $body, $sharingKey)
+> \Flat\APIClient\Model\ScoreComment updateScoreComment($score, $comment, $scoreCommentUpdate, $sharingKey)
 
 Update an existing comment
 
@@ -1536,13 +1536,13 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$comment = "comment_example"; // string | Unique identifier of a sheet music comment
-$body = new \Flat\APIClient\Model\ScoreCommentUpdate(); // \Flat\APIClient\Model\ScoreCommentUpdate | 
-$sharingKey = "sharingKey_example"; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$comment = 'comment_example'; // string | Unique identifier of a sheet music comment
+$scoreCommentUpdate = new \Flat\APIClient\Model\ScoreCommentUpdate(); // \Flat\APIClient\Model\ScoreCommentUpdate | 
+$sharingKey = 'sharingKey_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
-    $result = $apiInstance->updateScoreComment($score, $comment, $body, $sharingKey);
+    $result = $apiInstance->updateScoreComment($score, $comment, $scoreCommentUpdate, $sharingKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->updateScoreComment: ', $e->getMessage(), PHP_EOL;
@@ -1556,7 +1556,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **comment** | **string**| Unique identifier of a sheet music comment |
- **body** | [**\Flat\APIClient\Model\ScoreCommentUpdate**](../Model/ScoreCommentUpdate.md)|  |
+ **scoreCommentUpdate** | [**\Flat\APIClient\Model\ScoreCommentUpdate**](../Model/ScoreCommentUpdate.md)|  |
  **sharingKey** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional]
 
 ### Return type
@@ -1575,7 +1575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateScoreTrack**
-> \Flat\APIClient\Model\ScoreTrack updateScoreTrack($score, $track, $body)
+> \Flat\APIClient\Model\ScoreTrack updateScoreTrack($score, $track, $scoreTrackUpdate)
 
 Update an audio or video track linked to a score
 
@@ -1593,12 +1593,12 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$score = "score_example"; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$track = "track_example"; // string | Unique identifier of a score audio track
-$body = new \Flat\APIClient\Model\ScoreTrackUpdate(); // \Flat\APIClient\Model\ScoreTrackUpdate | 
+$score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+$track = 'track_example'; // string | Unique identifier of a score audio track
+$scoreTrackUpdate = new \Flat\APIClient\Model\ScoreTrackUpdate(); // \Flat\APIClient\Model\ScoreTrackUpdate | 
 
 try {
-    $result = $apiInstance->updateScoreTrack($score, $track, $body);
+    $result = $apiInstance->updateScoreTrack($score, $track, $scoreTrackUpdate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScoreApi->updateScoreTrack: ', $e->getMessage(), PHP_EOL;
@@ -1612,7 +1612,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). |
  **track** | **string**| Unique identifier of a score audio track |
- **body** | [**\Flat\APIClient\Model\ScoreTrackUpdate**](../Model/ScoreTrackUpdate.md)|  |
+ **scoreTrackUpdate** | [**\Flat\APIClient\Model\ScoreTrackUpdate**](../Model/ScoreTrackUpdate.md)|  |
 
 ### Return type
 
