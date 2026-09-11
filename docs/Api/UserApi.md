@@ -28,8 +28,8 @@ $apiInstance = new Flat\APIClient\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
-$ids = true; // bool | Return only the identifiers of the scores
+$user = 'user_example'; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
+$ids = True; // bool | Return only the identifiers of the scores
 
 try {
     $result = $apiInstance->gerUserLikes($user, $ids);
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -83,7 +83,7 @@ $apiInstance = new Flat\APIClient\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.
+$user = 'user_example'; // string | This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.
 
 try {
     $result = $apiInstance->getUser($user);
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -136,8 +136,8 @@ $apiInstance = new Flat\APIClient\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = "user_example"; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
-$parent = "parent_example"; // string | Filter the score forked from the score id `parent`
+$user = 'user_example'; // string | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user.
+$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
 
 try {
     $result = $apiInstance->getUserScores($user, $parent);
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

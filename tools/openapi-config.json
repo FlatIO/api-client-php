@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "Flat\\APIClient",
+  "artifactVersion": "2.0.0",
+  "packageName": "flat-api",
+  "srcBasePath": "src",
+  "hideGenerationTimestamp": true
+}

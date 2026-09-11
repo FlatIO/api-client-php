@@ -1,0 +1,33 @@
+name: CI
+
+# Build and load checks. Everything that needs a credential runs elsewhere and reports
+# back as a commit status, so no secret is reachable from this workflow.
+
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build (php ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - run: composer install --no-interaction --no-progress
+      - name: Lint every source file
+        run: find src -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null

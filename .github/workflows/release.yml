@@ -1,0 +1,48 @@
+name: Release
+
+# PHP has no publish step: Packagist reads the tag pushed by tag-on-merge.yml and needs no
+# credential (FR-021a). This workflow only asserts the tag and the manifest agree, so a mismatched
+# release is caught here rather than silently published by Packagist.
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: write # create the GitHub release
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: The tag must match the packaged version
+        run: |
+          # Every tag in this repository, and in api-reference, carries the v. The version
+          # inside the package never does, so the tag is compared with it stripped.
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG="$(cat VERSION)"
+          [ "$TAG" = "$PKG" ] || { echo "tag $TAG != VERSION $PKG"; exit 1; }
+          echo "Packagist will pick up tag $TAG from its repository webhook."
+
+      # The tag alone left the repository's Releases page showing a version from years ago as
+      # "Latest", which is what anyone browsing the repository sees first. The notes come from the
+      # CHANGELOG section for this version, so the release says what changed rather than nothing.
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          NOTES="$(awk -v v="$VERSION" '
+            $0 ~ "^## \\[?" v "\\]?" { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+          ' CHANGELOG.md)"
+          [ -n "$NOTES" ] || NOTES="See CHANGELOG.md for $VERSION."
+          # Creating one that exists is an error, and a re-run of a release that already happened
+          # should be a no-op rather than a red build.
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release $GITHUB_REF_NAME already exists; nothing to do."
+          else
+            gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes "$NOTES"
+          fi

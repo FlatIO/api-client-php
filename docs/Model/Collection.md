@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier of the collection | [optional] 
-**title** | [**\Flat\APIClient\Model\CollectionTitle**](CollectionTitle.md) |  | [optional] 
+**title** | **string** | The title of the collection | [optional] 
 **htmlUrl** | **string** | The url where the collection can be viewed in a web browser | [optional] 
 **type** | [**\Flat\APIClient\Model\CollectionType**](CollectionType.md) |  | [optional] 
 **privacy** | [**\Flat\APIClient\Model\CollectionPrivacy**](CollectionPrivacy.md) |  | [optional] 

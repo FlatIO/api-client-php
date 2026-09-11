@@ -1,0 +1,33 @@
+schema_version: 1
+
+language: php
+package_name: flat/api
+registry: packagist
+
+generator:
+  name: php-nextgen
+  version: 7.24.0
+  config: tools/openapi-config.json
+
+generated_paths:
+  - src/**
+  - docs/reference/**
+  - .openapi-generator/**
+  - OPERATIONS.json
+
+# Packagist reads the version from the git tag, so composer.json carries no version field.
+# VERSION is the source of truth (as it is for every SDK here).
+version_file:
+  path: VERSION
+  pattern: '^(?P<version>[0-9]+\.[0-9]+\.[0-9]+)$'
+
+runtime_matrix:
+  - version: '8.2'
+    upstream_eol: 2026-12-31
+  - version: '8.3'
+    upstream_eol: 2027-12-31
+  - version: '8.4'
+    upstream_eol: 2028-12-31
+
+smoke:
+  entrypoint: tools/smoke.php
