@@ -4,7 +4,7 @@ All URIs are relative to https://api.flat.io/v2, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getTask()**](TaskApi.md#getTask) | **GET** /tasks/{task} | Get a task details |
+| [**getTask()**](TaskApi.md#getTask) | **GET** /tasks/{task} | Get task details |
 
 
 ## `getTask()`
@@ -13,9 +13,9 @@ All URIs are relative to https://api.flat.io/v2, except if the operation defines
 getTask($task): \Flat\APIClient\Model\Task
 ```
 
-Get a task details
+Get task details
 
-This method can be used to follow a task progression, for example while a score is being exported.
+This method can be used to follow the progress of a task, for example while a score is being exported.
 
 ### Example
 

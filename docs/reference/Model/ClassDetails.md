@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **state** | [**\Flat\APIClient\Model\ClassState**](ClassState.md) |  |
 **name** | **string** | The name of the class |
 **section** | **string** | The section of the class | [optional]
-**description** | **string** | An optionnal description for this class | [optional]
+**description** | **string** | An optional description for this class | [optional]
 **organization** | **string** | The unique identifier of the Organization owning this class | [optional]
 **owner** | **string** | The unique identifier of the User owning this class | [optional]
-**creation_date** | **\DateTime** | The date when the class was create |
+**creation_date** | **\DateTime** | The date when the class was created |
 **modification_date** | **\DateTime** | The date when the class was last modified | [optional]
 **enrollment_code** | **string** | [Teachers only] The enrollment code that can be used by the students to join the class | [optional]
-**theme** | **string** | The theme identifier using in Flat User Interface | [optional]
+**theme** | **string** | The theme identifier used in the Flat user interface | [optional]
 **assignments_count** | **float** | The number of assignments created in the class | [optional]
 **students_group** | [**\Flat\APIClient\Model\GroupDetails**](GroupDetails.md) |  | [optional]
 **teachers_group** | [**\Flat\APIClient\Model\GroupDetails**](GroupDetails.md) |  | [optional]

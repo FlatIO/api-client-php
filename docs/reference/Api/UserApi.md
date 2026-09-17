@@ -36,7 +36,7 @@ $apiInstance = new Flat\APIClient\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = 'user_example'; // string | This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.
+$user = 'user_example'; // string | This route parameter is the unique identifier of the user. You can specify an email instead of a unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.
 
 try {
     $result = $apiInstance->getUser($user);
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user** | **string**| This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use &#x60;me&#x60; as a value instead of the current User unique identifier to work on the current authenticated user. | |
+| **user** | **string**| This route parameter is the unique identifier of the user. You can specify an email instead of a unique identifier. If you are executing this request authenticated, you can use &#x60;me&#x60; as a value instead of the current User unique identifier to work on the current authenticated user. | |
 
 ### Return type
 
@@ -143,7 +143,7 @@ getUserScores($user, $paginate, $sort, $direction, $limit, $next, $previous): \F
 
 List user's scores
 
-Get the list of public scores owned by a User. If you want to access to private scores, please use the [Collections API](#tag/Collection). For example `GET /v2/collections/allScores/scores` to list all recently updated scores.
+Get the list of public scores owned by a User. If you want to access private scores, please use the [Collections API](#tag/Collection). For example `GET /v2/collections/allScores/scores` to list all recently updated scores.
 
 ### Example
 
