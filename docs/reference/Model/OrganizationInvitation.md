@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The invitation unique identifier | [optional]
 **creation_date** | **\DateTime** | The creation date of the invitation | [optional]
-**organization** | **string** | The unique identifier of the Organization owning this class |
+**organization** | **string** | The unique identifier of the Organization this invitation belongs to |
 **organization_role** | [**\Flat\APIClient\Model\OrganizationRoles**](OrganizationRoles.md) |  |
 **custom_code** | **string** | Enrollment code to use when joining this organization |
 **email** | **string** | The email address this invitation was sent to | [optional]

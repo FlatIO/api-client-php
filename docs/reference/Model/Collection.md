@@ -21,6 +21,6 @@ Name | Type | Description | Notes
 **is_pinned** | **bool** | Whether the collection is pinned by the owner | [optional]
 **contents** | [**\Flat\APIClient\Model\CollectionContents**](CollectionContents.md) |  |
 **capabilities** | [**\Flat\APIClient\Model\CollectionCapabilities**](CollectionCapabilities.md) |  |
-**collections** | **string[]** | The List of parent collections, which includes all the collections this score is included. Please note that you might not have access to all of them. | [optional]
+**collections** | **string[]** | The list of parent collections this score is included in. Please note that you might not have access to all of them. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

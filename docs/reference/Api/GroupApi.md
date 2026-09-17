@@ -282,7 +282,7 @@ $apiInstance = new Flat\APIClient\Api\GroupApi(
     $config
 );
 $group = 'group_example'; // string | Unique identifier of a Flat group
-$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
+$parent = 'parent_example'; // string | Only return the scores forked from the score `parent`
 
 try {
     $result = $apiInstance->getGroupScores($group, $parent);
@@ -297,7 +297,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group** | **string**| Unique identifier of a Flat group | |
-| **parent** | **string**| Filter the score forked from the score id &#x60;parent&#x60; | [optional] |
+| **parent** | **string**| Only return the scores forked from the score &#x60;parent&#x60; | [optional] |
 
 ### Return type
 

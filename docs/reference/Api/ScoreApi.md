@@ -44,7 +44,7 @@ addScoreCollaborator($score, $body): \Flat\APIClient\Model\ResourceCollaborator
 
 Add a new collaborator
 
-Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a resource. - To add an existing Flat user to the resource, specify its unique identifier in the `user` property. - To invite an external user to the resource, specify its email in the `userEmail` property. - To add a Flat group to the resource, specify its unique identifier in the `group` property. - To update an existing collaborator, process the same request with different rights.
+Share a score with a single user or a group. This API call allows you to add, invite and update the collaborators of a resource. - To add an existing Flat user to the resource, specify their unique identifier in the `user` property. - To invite an external user to the resource, specify their email in the `userEmail` property. - To add a Flat group to the resource, specify its unique identifier in the `group` property. - To update an existing collaborator, process the same request with different rights.
 
 ### Example
 
@@ -106,7 +106,7 @@ addScoreTrack($score, $body): \Flat\APIClient\Model\ScoreTrackCreationResponse
 
 Add a new video or audio track to the score
 
-Use this method to add new track to the score. This track can then be played on flat.io or in an embedded score. This API method support medias hosted on SoundCloud, YouTube and Vimeo.
+Use this method to add a new track to the score. This track can then be played on flat.io or in an embedded score. This API method supports media hosted on SoundCloud, YouTube and Vimeo.
 
 ### Example
 
@@ -168,7 +168,7 @@ createExportTask($score, $revision, $format, $sharing_key, $body): \Flat\APIClie
 
 Create a new score export task
 
-Some of the exports of a score takes are longer to process than a simple API requests. Use this endpoint to launch a new export of one score hosted on Flat.
+Some score exports take longer to process than a single API request allows. Use this endpoint to launch a new export of one score hosted on Flat.
 
 ### Example
 
@@ -236,7 +236,7 @@ createScore($body): \Flat\APIClient\Model\ScoreDetails
 
 Create a new score
 
-Use this API method to **create a new music score in the current User account**. This API endpoints provides 3 ways to create scores:  * `ScoreCreationBuilderData` : Create a blank score by providing the list of instruments to use. You can optionally customize the initial key signature, time signature, enable TABs, Chord grids, as well as the page layout. * `ScoreCreationFileImport`: Import a file to create the new Flat document.    **Preferred formats**:   * **MusicXML**: `.xml`, `.musicxml`, `.mxl` (compressed) — MIME: `vnd.recordare.musicxml+xml`, `vnd.recordare.musicxml`. This is the only format that preserves all notation data (articulations, dynamics, layout, etc.) with full round-trip support.   * **MIDI**: `.mid`, `.midi` — MIME: `audio/midi`. Only preserves pitch, timing, and instrument data; notation details are lost.    **Also supported** (converted to MusicXML on import, some notation details may be lost):   * **Guitar Pro**: `.gp`, `.gp3`, `.gp4`, `.gp5`, `.gpx`, `.gtp`   * **MuseScore**: `.mscz`, `.mscx`   * **Finale**: `.musx`   * **ABC notation**: `.abc` — MIME: `text/vnd.abc`   * **PowerTab**: `.ptb`   * **Capella**: `.cap`, `.capx`   * **MEI**: `.mei`   * **Overture**: `.ove`   * **TablEdit**: `.tef`   * **Band-in-a-Box**: `.mgu`, `.sgu`   * **Karaoke MIDI**: `.kar`   * **MuseData**: `.md`   * **Score Writer**: `.scw`   * **Bagpipe Music Writer**: `.bmw`, `.bww`   * **Encore**: `.enc`    **Scanned music** (requires `supportsTasks`, runs our music recognition and spends   credits):   * **PDF**: `.pdf`   * **Images**: `.jpg`, `.png`, `.webp`, `.tiff`, `.gif`, `.avif`, `.heic`, `.heif`    The file is identified by its own content, so its extension and any declared type do   not have to match. **One file per request**: a multi-page PDF or a multi-frame TIFF is   fine, but several separate images of the same score (a page photographed at a time)   need `createOmrJob`, which takes many inputs in one job and bills them as a single   document. Its live limits are served by `getOmrCapabilities`. * `ScoreCreationGoogleDriveImport`: Import an existing Google Drive file from the connected Google Drive account.  This API call will automatically create the first revision of the document, the score can be modified by the using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions/{revision}`).  The currently authenticated user will be granted owner of the file and will be able to add other collaborators (users and groups).  If no `collection` is specified, the API will create the score in the most appropriate collection. When using an OAuth2 access token or a personal token, the score will be automatically added to your dedicated app collection in the account (`/v2/collections/app`).  If a `collection` is specified and this one has more public privacy settings than the score (e.g. `public` vs `private` for the score), the privacy settings of the created score will be adjusted to the collection ones.  You can check the adjusted privacy settings in the returned score `privacy`, and optionally adjust these settings if needed using `PUT /scores/{score}`.
+Use this API method to **create a new music score in the current User account**. This endpoint provides 3 ways to create scores:  * `ScoreCreationBuilderData` : Create a blank score by providing the list of instruments to use. You can optionally customize the initial key signature, time signature, enable TABs, Chord grids, as well as the page layout. * `ScoreCreationFileImport`: Import a file to create the new Flat document.    **Preferred formats**:   * **MusicXML**: `.xml`, `.musicxml`, `.mxl` (compressed) — MIME: `vnd.recordare.musicxml+xml`, `vnd.recordare.musicxml`. This is the only format that preserves all notation data (articulations, dynamics, layout, etc.) with full round-trip support.   * **MIDI**: `.mid`, `.midi` — MIME: `audio/midi`. Only preserves pitch, timing, and instrument data; notation details are lost.    **Also supported** (converted to MusicXML on import, some notation details may be lost):   * **Guitar Pro**: `.gp`, `.gp3`, `.gp4`, `.gp5`, `.gpx`, `.gtp`   * **MuseScore**: `.mscz`, `.mscx`   * **Finale**: `.musx`   * **ABC notation**: `.abc` — MIME: `text/vnd.abc`   * **PowerTab**: `.ptb`   * **Capella**: `.cap`, `.capx`   * **MEI**: `.mei`   * **Overture**: `.ove`   * **TablEdit**: `.tef`   * **Band-in-a-Box**: `.mgu`, `.sgu`   * **Karaoke MIDI**: `.kar`   * **MuseData**: `.md`   * **Score Writer**: `.scw`   * **Bagpipe Music Writer**: `.bmw`, `.bww`   * **Encore**: `.enc`    **Scanned music** (requires `supportsTasks`, runs our music recognition and spends   credits):   * **PDF**: `.pdf`   * **Images**: `.jpg`, `.png`, `.webp`, `.tiff`, `.gif`, `.avif`, `.heic`, `.heif`    The file is identified by its own content, so its extension and any declared type do   not have to match. **One file per request**: a multi-page PDF or a multi-frame TIFF is   fine, but several separate images of the same score (a page photographed at a time)   need `createOmrJob`, which takes many inputs in one job and bills them as a single   document. Its live limits are served by `getOmrCapabilities`. * `ScoreCreationGoogleDriveImport`: Import an existing Google Drive file from the connected Google Drive account.  This API call will automatically create the first revision of the document, the score can then be modified using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions`).  The currently authenticated user will be the owner of the file and will be able to add other collaborators (users and groups).  If no `collection` is specified, the API will create the score in the most appropriate collection. When using an OAuth2 access token or a personal token, the score will be automatically added to your dedicated app collection in the account (`/v2/collections/app`).  If a `collection` is specified and this one has more public privacy settings than the score (e.g. `public` vs `private` for the score), the privacy settings of the created score will be adjusted to the collection ones.  You can check the adjusted privacy settings in the returned score `privacy`, and optionally adjust these settings if needed using `PUT /scores/{score}`.
 
 ### Example
 
@@ -358,7 +358,7 @@ deleteScore($score, $now)
 
 Delete a score
 
-This method can be used by anyone that has at least read access to the document:  - When called by an owner/admin, it will schedule the deletion of the score, its revisions, and complete history. The score won't be accessible anymore after calling this method and the user's quota will directly be updated. - When called by a collaborator, the score will be unshared (i.e. removed from the account & own collections). - When called by another user that has the score in its collections, the score will be removed from all the user collections.
+This method can be used by anyone that has at least read access to the document:  - When called by an owner/admin, it will schedule the deletion of the score, its revisions, and complete history. The score won't be accessible anymore after calling this method and the user's quota will directly be updated. - When called by a collaborator, the score will be unshared (i.e. removed from the account & own collections). - When called by another user that has the score in its collections, the score will be removed from all the user's collections.
 
 ### Example
 
@@ -378,7 +378,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     $config
 );
 $score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-$now = false; // bool | If `true`, the score deletion will be scheduled to be done ASAP
+$now = false; // bool | If `true`, the score deletion will be scheduled as soon as possible
 
 try {
     $apiInstance->deleteScore($score, $now);
@@ -392,7 +392,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). | |
-| **now** | **bool**| If &#x60;true&#x60;, the score deletion will be scheduled to be done ASAP | [optional] [default to false] |
+| **now** | **bool**| If &#x60;true&#x60;, the score deletion will be scheduled as soon as possible | [optional] [default to false] |
 
 ### Return type
 
@@ -438,7 +438,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
 );
 $score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $comment = 'comment_example'; // string | Unique identifier of a sheet music comment
-$event_properties = {"context":"discover","screenLevel0":"home","screenRoute":"/discover"}; // string | Optional analytics properties merged into XP tracking for this request.  JSON-encoded string representing event properties. Example:  - `?eventProperties={\"context\":\"discover\",\"screenLevel0\":\"home\"}`
+$event_properties = {"context":"discover","screenLevel0":"home","screenRoute":"/discover"}; // string | Optional analytics properties merged into the analytics events recorded for this request.  JSON-encoded string representing event properties. Example:  - `?eventProperties={\"context\":\"discover\",\"screenLevel0\":\"home\"}`
 $sharing_key = 'sharing_key_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 try {
@@ -454,7 +454,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). | |
 | **comment** | **string**| Unique identifier of a sheet music comment | |
-| **event_properties** | **string**| Optional analytics properties merged into XP tracking for this request.  JSON-encoded string representing event properties. Example:  - &#x60;?eventProperties&#x3D;{\&quot;context\&quot;:\&quot;discover\&quot;,\&quot;screenLevel0\&quot;:\&quot;home\&quot;}&#x60; | [optional] |
+| **event_properties** | **string**| Optional analytics properties merged into the analytics events recorded for this request.  JSON-encoded string representing event properties. Example:  - &#x60;?eventProperties&#x3D;{\&quot;context\&quot;:\&quot;discover\&quot;,\&quot;screenLevel0\&quot;:\&quot;home\&quot;}&#x60; | [optional] |
 | **sharing_key** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional] |
 
 ### Return type
@@ -541,7 +541,7 @@ editScore($score, $body): \Flat\APIClient\Model\ScoreDetails
 
 Edit a score's metadata
 
-This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.  To edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).  When editing the `title`, `subtitle`, `composer`, `lyricist`, `arranger` or `licenseText`, the metadatas will be instantly be updated, and a real-time action will be pushed to update the document lazily. This pending document modification will be automatically be saved as a new version by either a connected client or our internal versioning service.
+This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.  To edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions`).  When editing the `title`, `subtitle`, `composer`, `lyricist`, `arranger` or `licenseText`, the metadata is updated immediately, and a real-time action is pushed to update the document lazily. This pending document modification is automatically saved as a new revision, either by a connected client or by Flat.
 
 ### Example
 
@@ -687,7 +687,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
     $config
 );
 $group = 'group_example'; // string | Unique identifier of a Flat group
-$parent = 'parent_example'; // string | Filter the score forked from the score id `parent`
+$parent = 'parent_example'; // string | Only return the scores forked from the score `parent`
 
 try {
     $result = $apiInstance->getGroupScores($group, $parent);
@@ -702,7 +702,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group** | **string**| Unique identifier of a Flat group | |
-| **parent** | **string**| Filter the score forked from the score id &#x60;parent&#x60; | [optional] |
+| **parent** | **string**| Only return the scores forked from the score &#x60;parent&#x60; | [optional] |
 
 ### Return type
 
@@ -1049,7 +1049,7 @@ getScoreRevisionData($score, $revision, $format, $sharing_key, $parts, $default_
 
 Get a score revision data
 
-Retrieve the file corresponding to a score revision (the following formats are available): Flat JSON/Adagio JSON `json`, MusicXML `mxl`/`xml`, ABC notation `abc`, MP3 `mp3`, WAV `wav`, MIDI `midi`, Flat `flat`, a tumbnail of the first page `thumbnail.png` or auto sync points `synchronizationPoints`.  ABC notation is a text format that cannot express everything a score contains. Like MIDI, the export is lossy: notation ABC has no equivalent for is approximated or dropped rather than failing the request.
+Retrieve the file corresponding to a score revision (the following formats are available): Flat JSON `json`, MusicXML `mxl`/`xml`, ABC notation `abc`, MP3 `mp3`, WAV `wav`, MIDI `midi`, Flat `flat`, a thumbnail of the first page `thumbnail.png` or auto sync points `synchronizationPoints`.  ABC notation is a text format that cannot express everything a score contains. Like MIDI, the export is lossy: notation that ABC has no equivalent for is approximated or dropped rather than failing the request.
 
 ### Example
 
@@ -1072,7 +1072,7 @@ $score = 'score_example'; // string | Unique identifier of the score document. T
 $revision = 'revision_example'; // string | Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
 $format = 'format_example'; // string | The format of the file you will retrieve
 $sharing_key = 'sharing_key_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
-$parts = 'parts_example'; // string | An optional a set of parts uuid to be exported. This parameter must be composed of parts uuids separated by commas. For example \"59df645f-bb1c-f1b4-b573-d2afc4491f94,34ef645f-1aef-f3bc-1564-34cca4492b87\".
+$parts = 'parts_example'; // string | An optional set of part UUIDs to export. This parameter must be composed of part UUIDs separated by commas. For example \"59df645f-bb1c-f1b4-b573-d2afc4491f94,34ef645f-1aef-f3bc-1564-34cca4492b87\".
 $default_track = True; // bool | When `format` is `mp3`, this property is set to true and the score has a default `ScoreTrack` (mp3), this one will be returned instead of the playback file.
 $url = True; // bool | Returns a json with the `url` in it instead of redirecting
 
@@ -1092,7 +1092,7 @@ try {
 | **revision** | **string**| Unique identifier of a score revision. You can use &#x60;last&#x60; to fetch the information related to the last version created. | |
 | **format** | **string**| The format of the file you will retrieve | |
 | **sharing_key** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional] |
-| **parts** | **string**| An optional a set of parts uuid to be exported. This parameter must be composed of parts uuids separated by commas. For example \&quot;59df645f-bb1c-f1b4-b573-d2afc4491f94,34ef645f-1aef-f3bc-1564-34cca4492b87\&quot;. | [optional] |
+| **parts** | **string**| An optional set of part UUIDs to export. This parameter must be composed of part UUIDs separated by commas. For example \&quot;59df645f-bb1c-f1b4-b573-d2afc4491f94,34ef645f-1aef-f3bc-1564-34cca4492b87\&quot;. | [optional] |
 | **default_track** | **bool**| When &#x60;format&#x60; is &#x60;mp3&#x60;, this property is set to true and the score has a default &#x60;ScoreTrack&#x60; (mp3), this one will be returned instead of the playback file. | [optional] |
 | **url** | **bool**| Returns a json with the &#x60;url&#x60; in it instead of redirecting | [optional] |
 
@@ -1121,7 +1121,7 @@ getScoreRevisions($score, $sharing_key): \Flat\APIClient\Model\ScoreRevision[]
 
 List the revisions
 
-When creating a score or saving a new version of a score, a revision is created in our storage. This method allows you to list all of them, sorted by last modification.  Depending the plan of the account, this list can be trunked to the few last revisions.
+When creating a score or saving a new version of a score, a revision is created in our storage. This method allows you to list all of them, sorted by last modification.  Depending on the plan of the account, this list may be truncated to the most recent revisions.
 
 ### Example
 
@@ -1183,7 +1183,7 @@ getScoreSubmissions($score): \Flat\APIClient\Model\AssignmentSubmission[]
 
 List submissions related to the score
 
-This API call will list the different assignments submissions where the score is attached. This method can be used by anyone that are part of the organization and have at least read access to the document.
+This API call will list the different assignments submissions where the score is attached. This method can be used by anyone who is part of the organization and has at least read access to the document.
 
 ### Example
 
@@ -1371,7 +1371,7 @@ getUserScores($user, $paginate, $sort, $direction, $limit, $next, $previous): \F
 
 List user's scores
 
-Get the list of public scores owned by a User. If you want to access to private scores, please use the [Collections API](#tag/Collection). For example `GET /v2/collections/allScores/scores` to list all recently updated scores.
+Get the list of public scores owned by a User. If you want to access private scores, please use the [Collections API](#tag/Collection). For example `GET /v2/collections/allScores/scores` to list all recently updated scores.
 
 ### Example
 
@@ -1464,8 +1464,8 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
 );
 $score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $sharing_key = 'sharing_key_example'; // string | This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
-$assignment = 'assignment_example'; // string | An assignment id with which all the tracks returned will be related to
-$list_auto_track = True; // bool | If true, and if available, return last automatically synchronized Flat's mp3 export as an additional track
+$assignment = 'assignment_example'; // string | Only return the tracks related to this assignment
+$list_auto_track = True; // bool | If `true`, and when available, also return the latest MP3 export automatically generated by Flat as an additional track
 
 try {
     $result = $apiInstance->listScoreTracks($score, $sharing_key, $assignment, $list_auto_track);
@@ -1481,8 +1481,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). | |
 | **sharing_key** | **string**| This sharing key must be specified to access to a score or collection with a &#x60;privacy&#x60; mode set to &#x60;privateLink&#x60; and the current user is not a collaborator of the document. | [optional] |
-| **assignment** | **string**| An assignment id with which all the tracks returned will be related to | [optional] |
-| **list_auto_track** | **bool**| If true, and if available, return last automatically synchronized Flat&#39;s mp3 export as an additional track | [optional] |
+| **assignment** | **string**| Only return the tracks related to this assignment | [optional] |
+| **list_auto_track** | **bool**| If &#x60;true&#x60;, and when available, also return the latest MP3 export automatically generated by Flat as an additional track | [optional] |
 
 ### Return type
 
@@ -1631,7 +1631,7 @@ postScoreComment($score, $body, $sharing_key): \Flat\APIClient\Model\ScoreCommen
 
 Post a new comment
 
-Post a document or a contextualized comment on a document.  Please note that this method includes an anti-spam system for public scores. We don't guarantee that your comments will be accepted and displayed to end-user. Comments are be blocked by returning a `403` HTTP error and hidden from other users when the `spam` property is `true`.
+Post a document or a contextualized comment on a document.  Please note that this method includes an anti-spam system for public scores. We don't guarantee that your comments will be accepted and displayed to end users. Comments can be blocked by returning a `403` HTTP error and hidden from other users when the `spam` property is `true`.
 
 ### Example
 
@@ -1716,7 +1716,7 @@ $apiInstance = new Flat\APIClient\Api\ScoreApi(
 );
 $score = 'score_example'; // string | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
 $collaborator = 'collaborator_example'; // string | Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
-$event_properties = {"context":"discover","screenLevel0":"home","screenRoute":"/discover"}; // string | Optional analytics properties merged into XP tracking for this request.  JSON-encoded string representing event properties. Example:  - `?eventProperties={\"context\":\"discover\",\"screenLevel0\":\"home\"}`
+$event_properties = {"context":"discover","screenLevel0":"home","screenRoute":"/discover"}; // string | Optional analytics properties merged into the analytics events recorded for this request.  JSON-encoded string representing event properties. Example:  - `?eventProperties={\"context\":\"discover\",\"screenLevel0\":\"home\"}`
 
 try {
     $apiInstance->removeScoreCollaborator($score, $collaborator, $event_properties);
@@ -1731,7 +1731,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **score** | **string**| Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. &#x60;ScoreDetails.id&#x60;) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with &#x60;drive-&#x60; (e.g. &#x60;drive-0B000000000&#x60;). | |
 | **collaborator** | **string**| Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group** | |
-| **event_properties** | **string**| Optional analytics properties merged into XP tracking for this request.  JSON-encoded string representing event properties. Example:  - &#x60;?eventProperties&#x3D;{\&quot;context\&quot;:\&quot;discover\&quot;,\&quot;screenLevel0\&quot;:\&quot;home\&quot;}&#x60; | [optional] |
+| **event_properties** | **string**| Optional analytics properties merged into the analytics events recorded for this request.  JSON-encoded string representing event properties. Example:  - &#x60;?eventProperties&#x3D;{\&quot;context\&quot;:\&quot;discover\&quot;,\&quot;screenLevel0\&quot;:\&quot;home\&quot;}&#x60; | [optional] |
 
 ### Return type
 

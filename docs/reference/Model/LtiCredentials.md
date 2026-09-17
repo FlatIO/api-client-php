@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The unique identifier of this couple of credentials | [optional]
-**name** | **string** | Name of the couple of credentials | [optional]
+**id** | **string** | The unique identifier of this pair of credentials | [optional]
+**name** | **string** | Name of the pair of credentials | [optional]
 **lms** | [**\Flat\APIClient\Model\LmsName**](LmsName.md) |  | [optional]
 **organization** | **string** | The unique identifier of the Organization associated to these credentials | [optional]
 **creator** | **string** | Unique identifier of the user who created these credentials | [optional]
-**creation_date** | **\DateTime** | The creation date of thse credentials | [optional]
+**creation_date** | **\DateTime** | The creation date of these credentials | [optional]
 **last_usage** | **\DateTime** | The last time these credentials were used | [optional]
 **consumer_key** | **string** | OAuth 1 Consumer Key | [optional]
 **consumer_secret** | **string** | OAuth 1 Consumer Secret | [optional]

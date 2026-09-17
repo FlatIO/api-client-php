@@ -6,7 +6,7 @@ All URIs are relative to https://api.flat.io/v2, except if the operation defines
 | ------------- | ------------- | ------------- |
 | [**countOrgaUsers()**](OrganizationApi.md#countOrgaUsers) | **GET** /organizations/users/count | Count the organization users using the provided filters |
 | [**createLtiConfiguration()**](OrganizationApi.md#createLtiConfiguration) | **POST** /organizations/lti/configurations | Create a new LTI configuration (1.1 or 1.3) |
-| [**createLtiCredentials()**](OrganizationApi.md#createLtiCredentials) | **POST** /organizations/lti/credentials | Create a new couple of LTI 1.x credentials |
+| [**createLtiCredentials()**](OrganizationApi.md#createLtiCredentials) | **POST** /organizations/lti/credentials | Create a new pair of LTI 1.1 credentials |
 | [**createOrganizationInvitation()**](OrganizationApi.md#createOrganizationInvitation) | **POST** /organizations/invitations | Create a new invitation to join the organization |
 | [**createOrganizationUser()**](OrganizationApi.md#createOrganizationUser) | **POST** /organizations/users | Create a new user account |
 | [**createOrganizationUserAccessToken()**](OrganizationApi.md#createOrganizationUserAccessToken) | **POST** /organizations/users/{user}/accessToken | Create a delegated API access token for an organization user |
@@ -153,7 +153,7 @@ try {
 createLtiCredentials($body): \Flat\APIClient\Model\LtiCredentials
 ```
 
-Create a new couple of LTI 1.x credentials
+Create a new pair of LTI 1.1 credentials
 
 DEPRECATED. Use the unified endpoints under `/organizations/lti/configurations`. Note: Teachers may be restricted by the organization privacy setting `lti1p1AllowTeachersCredentials`.  Flat for Education is a Certified LTI Provider. You can use these API methods to automate the creation of LTI credentials. You can read more about our LTI implementation, supported components and LTI Endpoints in our [Developer Documentation](https://flat.io/developers/docs/lti/).
 
@@ -215,7 +215,7 @@ createOrganizationInvitation($body): \Flat\APIClient\Model\OrganizationInvitatio
 
 Create a new invitation to join the organization
 
-This method creates and sends invitation for teachers and admins.  Invitations can only be used by new Flat users or users who are not part of the organization yet.  If the email of the user is already associated to a user of your organization, the API will simply update the role of the existing user and won't send an invitation. In this case, the property `usedBy` will be directly filled with the uniquer identifier of the corresponding user.
+This method creates and sends an invitation for teachers and admins.  Invitations can only be used by new Flat users or users who are not part of the organization yet.  If the email of the user is already associated to a user of your organization, the API will simply update the role of the existing user and won't send an invitation. In this case, the property `usedBy` will be directly filled with the unique identifier of the corresponding user.
 
 ### Example
 
@@ -845,7 +845,7 @@ $apiInstance = new Flat\APIClient\Api\OrganizationApi(
     $config
 );
 $user = 'user_example'; // string | Unique identifier of the Flat account
-$convert_to_individual = True; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.
+$convert_to_individual = True; // bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before performing this operation, you need to be sure that the user is at least 13 years old and has read and agreed to the Individual Terms of Service of Flat available on https://flat.io/legal.
 
 try {
     $apiInstance->removeOrganizationUser($user, $convert_to_individual);
@@ -859,7 +859,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **user** | **string**| Unique identifier of the Flat account | |
-| **convert_to_individual** | **bool**| If &#x60;true&#x60;, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal. | [optional] |
+| **convert_to_individual** | **bool**| If &#x60;true&#x60;, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before performing this operation, you need to be sure that the user is at least 13 years old and has read and agreed to the Individual Terms of Service of Flat available on https://flat.io/legal. | [optional] |
 
 ### Return type
 
